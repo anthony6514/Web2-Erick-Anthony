@@ -1,0 +1,40 @@
+<nav class="glass-morphism sticky top-0 z-50 border-b border-white/5 px-4 lg:px-6 py-3">
+  <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
+    <a routerLink="/home" class="flex items-center space-x-2 group">
+      <img src="https://cdn-icons-png.flaticon.com/128/15779/15779650.png" alt="Logo"
+        class="w-8 h-8 group-hover:scale-110 transition-transform">
+      <span class="self-center text-2xl font-black whitespace-nowrap text-white tracking-tighter">
+        <span class="text-accent-500">T</span>RATO
+      </span>
+    </a>
+    <div class="flex items-center lg:order-2">
+      <a routerLink="/registro"
+        class="text-gray-300 hover:text-white font-medium rounded-xl text-sm px-4 py-2.5 transition-all">Registro</a>
+      <a routerLink="/usuarios"
+        class="text-white bg-accent-600 hover:bg-accent-500 font-bold rounded-xl text-sm px-5 py-2.5 ml-2 shadow-lg shadow-accent-600/20 transition-all transform hover:-translate-y-0.5">Usuarios</a>
+      <button (click)="toggleMenu()" type="button"
+        class="inline-flex items-center p-2 ml-1 text-sm text-gray-400 rounded-xl lg:hidden hover:bg-white/5 transition-colors">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+        </svg>
+      </button>
+    </div>
+    <div class="justify-between items-center w-full lg:flex lg:w-auto lg:order-1" id="mobile-menu-2"
+      [class.hidden]="!isMenuOpen">
+      <ul class="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-10 lg:mt-0">
+        <li>
+          <a routerLink="/home" routerLinkActive="text-accent-500" [routerLinkActiveOptions]="{exact: true}"
+            class="block py-2 text-gray-400 hover:text-white lg:p-0 transition-colors">Inicio</a>
+        </li>
+        <li>
+          <a routerLink="/productos" routerLinkActive="text-accent-500"
+            class="block py-2 text-gray-400 hover:text-white lg:p-0 transition-colors">Productos</a>
+        </li>
+        <li>
+          <a routerLink="/acerca" routerLinkActive="text-accent-500"
+            class="block py-2 text-gray-400 hover:text-white lg:p-0 transition-colors">Acerca</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

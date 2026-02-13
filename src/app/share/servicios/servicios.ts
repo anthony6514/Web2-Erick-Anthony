@@ -1,0 +1,65 @@
+import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+
+@Component({
+  selector: 'app-services',
+  standalone: true,
+  imports: [CommonModule],
+  templateUrl: './servicios.html',
+  styleUrl: './servicios.css',
+})
+export class Services {
+
+  subtitulo: string = "Cuidamos a los que más quieres con servicios de calidad";
+  servicioSeleccionado: string = '';
+
+
+  servicios = [
+    {
+      id: 1,
+      nombre: "Consulta General",
+      descripcion: "Evaluación completa de tu mascota",
+      imagen: "data:image/jpeg;base64,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",
+      activo: true
+    },
+    {
+      id: 2,
+      nombre: "Cirugía",
+      descripcion: "El cuidado de tu mascota con el mejor cirujano",
+      imagen: "https://images.unsplash.com/photo-1576201836106-db1758fd1c97?q=80&w=800&auto=format&fit=crop",
+      activo: true
+    },
+    {
+      id: 3,
+      nombre: "Estética",
+      descripcion: "El cuidado de la imagen de tu mascota es primordial",
+      imagen: "https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?q=80&w=800&auto=format&fit=crop",
+      activo: false
+    },
+  ];
+
+  serviciosFiltrados = [...this.servicios];
+
+  seleccionar(nombre: string) {
+    this.servicioSeleccionado = nombre;
+    console.log('Seleccionado:', nombre);
+  }
+
+
+  busqueda(event: Event) {
+    const input = event.target as HTMLInputElement;
+    const valor = input.value.toLowerCase(); 
+
+   
+    if (valor === '') {
+      this.subtitulo = "Cuidamos a los que más quieres con servicios de calidad";
+    } else {
+      this.subtitulo = `Resultados para: ${valor}`;
+    }
+
+    // Filtramos la lista
+    this.serviciosFiltrados = this.servicios.filter(s => 
+      s.nombre.toLowerCase().includes(valor)
+    );
+  }
+}

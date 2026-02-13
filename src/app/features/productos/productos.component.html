@@ -1,0 +1,77 @@
+<section class="bg-primary-950 py-12 antialiased min-h-screen">
+    <div class="mx-auto max-w-screen-xl px-4 2xl:px-0">
+        <!-- COMPONENTE 1: Section Header -->
+        <app-section-header title="Catálogo Completo"
+            subtitle="Explora nuestra gran variedad de productos con la mejor calidad y precio del mercado.">
+        </app-section-header>
+
+        <div class="mb-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            @for (producto of productos(); track producto.id) {
+            <div
+                class="glass-morphism rounded-2xl p-6 hover:shadow-2xl hover:shadow-accent-600/10 transition-all duration-300 group">
+                <div class="h-56 w-full overflow-hidden rounded-xl bg-primary-900 mb-6 relative">
+                    <!-- COMPONENTE 2: Status Badge (Uso dinámico) -->
+                    <div class="absolute top-2 right-2 z-10">
+                        <app-status-badge label="En Stock" type="success"></app-status-badge>
+                    </div>
+                    <img class="mx-auto h-full w-full object-cover group-hover:scale-110 transition-transform duration-500"
+                        [src]="producto.imageUrl" [alt]="producto.name" />
+                </div>
+                <div class="space-y-4">
+                    <div class="flex items-center justify-between">
+                        <span
+                            class="px-3 py-1 rounded-full text-xs font-bold bg-accent-600/10 text-accent-400 border border-accent-600/20">
+                            {{ producto.category }}
+                        </span>
+                    </div>
+
+                    <h3 class="text-xl font-bold text-white group-hover:text-accent-500 transition-colors">
+                        {{ producto.name }}
+                    </h3>
+
+                    <p class="text-sm text-gray-400 line-clamp-2 leading-relaxed">
+                        {{ producto.description }}
+                    </p>
+
+                    <div class="pt-4 flex items-center justify-between gap-4 border-t border-white/5">
+                        <p class="text-2xl font-black text-white">
+                            ${{ producto.price }}
+                        </p>
+
+                        <button (click)="agregarAlCarrito(producto.name)" type="button"
+                            class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-accent-600 text-white hover:bg-accent-500 shadow-lg shadow-accent-600/20 transition-all transform active:scale-95">
+                            <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 4v16m8-8H4"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            }
+        </div>
+
+        <!-- COMPONENTE 3: Feature Item (Uso extra para completar el mínimo de 3) -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 border-t border-white/10 pt-16">
+            <app-feature-item
+                imagenUrl="https://img.freepik.com/psd-gratis/calidad-logotipo-3d-esta-garantizada_314999-3847.jpg?semt=ais_user_personalization&w=740&q=80"
+                title="Garantía Extendida"
+                description="Todos nuestros productos cuentan con 2 años de garantía oficial.">
+            </app-feature-item>
+            <app-feature-item
+                imagenUrl="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfDAUL4I8BAwNRfa9vCJ7eiR-rvZag8zNr9w&s"
+                title="Pago Flexible" description="Aceptamos todas las tarjetas y opciones de pago financiado.">
+            </app-feature-item>
+            <app-feature-item
+                imagenUrl="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvvE1mS5Y7nqP6CX3XfpVLM4kk7hzNxniyrA&s"
+                title="Envío Global" description="Llegamos a cualquier rincón del país con seguimiento en vivo.">
+            </app-feature-item>
+        </div>
+    </div>
+</section>
+
+<section class="py-20 bg-primary-900">
+    <app-section-header title="Los Favoritos" subtitle="Productos que están marcando tendencia este mes.">
+    </app-section-header>
+    <app-productos-mas-vendidos></app-productos-mas-vendidos>
+</section>

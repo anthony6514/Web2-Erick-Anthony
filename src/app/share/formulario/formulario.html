@@ -1,0 +1,75 @@
+<div class="max-w-6xl mx-auto p-10 bg-[#0a0a0c] min-h-screen text-white">
+
+  <div class="mb-10">
+    <h1 class="text-3xl font-bold uppercase tracking-tight">
+      Gestión de <span class="text-blue-500">Usuarios</span>
+    </h1>
+    <p class="text-gray-500 text-sm">Administración básica de la base de datos</p>
+  </div>
+
+  <!-- Formulario Simple pero elegante -->
+  <div class="bg-gray-900/50 p-8 rounded-2xl border border-gray-800 mb-12 shadow-lg">
+    <h2 class="text-lg font-bold mb-6">
+      {{ editando ? 'Editar Datos' : 'Añadir Nuevo Usuario' }}
+    </h2>
+
+    <form (ngSubmit)="guardarUsuario()" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+      <div class="flex flex-col gap-2">
+        <label class="text-xs font-bold text-gray-500 uppercase">Nombre</label>
+        <input type="text" placeholder="Juan Perez" required name="nombre" [(ngModel)]="nuevoUsuario.name"
+          class="bg-black border border-gray-800 p-3 rounded-lg focus:border-blue-500 outline-none">
+      </div>
+
+      <div class="flex flex-col gap-2">
+        <label class="text-xs font-bold text-gray-500 uppercase">Email</label>
+        <input type="email" placeholder="correo@ejemplo.com" required name="email" [(ngModel)]="nuevoUsuario.email"
+          class="bg-black border border-gray-800 p-3 rounded-lg focus:border-blue-500 outline-none">
+      </div>
+
+      <div class="flex flex-col gap-2">
+        <label class="text-xs font-bold text-gray-500 uppercase">Teléfono</label>
+        <input type="text" placeholder="0987654321" required name="telefono" [(ngModel)]="nuevoUsuario.phone"
+          class="bg-black border border-gray-800 p-3 rounded-lg focus:border-blue-500 outline-none">
+      </div>
+
+      <button type="submit"
+        class="md:col-span-3 bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 rounded-lg transition-all shadow-md">
+        {{ editando ? 'Guardar Cambios' : 'Registrar Usuario' }}
+      </button>
+    </form>
+  </div>
+
+  <!-- Tabla de Usuarios -->
+  <div class="bg-black rounded-2xl border border-gray-800 overflow-hidden">
+    <table class="w-full text-left">
+      <thead class="bg-gray-900 text-gray-500 text-xs uppercase font-bold tracking-widest">
+        <tr>
+          <th class="p-4">ID</th>
+          <th class="p-4">Nombre</th>
+          <th class="p-4">Email</th>
+          <th class="p-4">Teléfono</th>
+          <th class="p-4 text-center">Acciones</th>
+        </tr>
+      </thead>
+      <tbody class="divide-y divide-gray-800">
+        <tr *ngFor="let usuario of listaUsuarios()" class="hover:bg-gray-900/30 transition-colors">
+          <td class="p-4 text-gray-600 font-mono">#{{ usuario.id }}</td>
+          <td class="p-4 font-bold">{{ usuario.name }}</td>
+          <td class="p-4 text-gray-400">{{ usuario.email }}</td>
+          <td class="p-4 text-gray-400">{{ usuario.phone }}</td>
+          <td class="p-4 text-center flex justify-center gap-2">
+            <button (click)="seleccionarParaEditar(usuario)"
+              class="bg-gray-800 p-2 rounded-lg hover:bg-blue-600 transition-colors">
+              ✏️
+            </button>
+            <button (click)="eliminarUsuario(usuario.id!)"
+              class="bg-gray-800 p-2 rounded-lg hover:bg-red-600 transition-colors">
+              🗑️
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
