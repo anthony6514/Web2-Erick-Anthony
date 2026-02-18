@@ -1,0 +1,116 @@
+<div class="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+    <div class="sm:mx-auto sm:w-full sm:max-w-md mb-8">
+        <h2 class="text-center text-3xl font-extrabold text-gray-900">
+            Crear una cuenta nueva
+        </h2>
+    </div>
+
+    <form [formGroup]="formCuenta" (ngSubmit)="registrar()"
+        class="max-w-sm mx-auto w-full bg-white p-6 shadow sm:rounded-lg">
+
+        <!-- Email -->
+        <div class="mb-5">
+            <label for="email" class="block mb-2 text-sm font-medium text-gray-900">
+                Correo electrónico
+            </label>
+            <input formControlName="email" type="email" id="email"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5"
+                placeholder="name@flowbite.com" required>
+
+            @if (formCuenta.get('email')?.invalid && formCuenta.get('email')?.touched) {
+            <p class="mt-2 text-sm text-red-600">
+                @if (formCuenta.get('email')?.errors?.['required']) {
+                El correo es obligatorio
+                } @else if (formCuenta.get('email')?.errors?.['pattern']) {
+                Ingresa un correo válido
+                }
+            </p>
+            }
+        </div>
+
+        <!-- Password -->
+        <div class="mb-5">
+            <label for="password" class="block mb-2 text-sm font-medium text-gray-900">
+                Contraseña
+            </label>
+            <div class="relative">
+                <input formControlName="password" [type]="mostrarPassword ? 'text' : 'password'" id="password"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5 pr-10"
+                    required>
+                <button type="button" (click)="mostrarPassword = !mostrarPassword"
+                    class="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-400 hover:text-gray-600 focus:outline-none">
+                    @if (mostrarPassword) {
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="size-5">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M3.98 8.223A10.477 10.477 0 0 0 1.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.451 10.451 0 0 1 12 4.5c4.756 0 8.773 3.162 10.065 7.498a10.522 10.522 0 0 1-4.293 5.774M6.228 6.228 3 3m3.228 3.228 3.65 3.65m7.894 7.894L21 21m-3.228-3.228-3.65-3.65m0 0a3 3 0 1 0-4.243-4.243m4.242 4.242L9.88 9.88" />
+                    </svg>
+                    } @else {
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="size-5">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M2.036 12.322a1.012 1.012 0 0 1 0-.644C3.399 8.049 7.21 4.5 12 4.5c4.791 0 8.601 3.549 9.963 7.178.07.207.07.431 0 .639C20.601 15.451 16.791 19 12 19c-4.79 0-8.601-3.549-9.963-7.178Z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                    </svg>
+                    }
+                </button>
+            </div>
+
+            @if (formCuenta.get('password')?.invalid && formCuenta.get('password')?.touched) {
+            <p class="mt-2 text-sm text-red-600">
+                @if (formCuenta.get('password')?.hasError('required')) {
+                La contraseña es obligatoria
+                } @else if (formCuenta.get('password')?.hasError('pattern')) {
+                Debe tener 8 caracteres, mayúscula, minúscula, número y especial
+                }
+            </p>
+            }
+        </div>
+
+        <!-- Confirm Password -->
+        <div class="mb-5">
+            <label for="confirmPassword" class="block mb-2 text-sm font-medium text-gray-900">
+                Confirmar Contraseña
+            </label>
+            <div class="relative">
+                <input formControlName="confirmPassword" [type]="mostrarPassword2 ? 'text' : 'password'"
+                    id="confirmPassword"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 pr-10"
+                    required>
+                <button type="button" (click)="mostrarPassword2 = !mostrarPassword2"
+                    class="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-400 hover:text-gray-600 focus:outline-none">
+                    @if (mostrarPassword2) {
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="size-5">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M3.98 8.223A10.477 10.477 0 0 0 1.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.451 10.451 0 0 1 12 4.5c4.756 0 8.773 3.162 10.065 7.498a10.522 10.522 0 0 1-4.293 5.774M6.228 6.228 3 3m3.228 3.228 3.65 3.65m7.894 7.894L21 21m-3.228-3.228-3.65-3.65m0 0a3 3 0 1 0-4.243-4.243m4.242 4.242L9.88 9.88" />
+                    </svg>
+                    } @else {
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="size-5">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M2.036 12.322a1.012 1.012 0 0 1 0-.644C3.399 8.049 7.21 4.5 12 4.5c4.791 0 8.601 3.549 9.963 7.178.07.207.07.431 0 .639C20.601 15.451 16.791 19 12 19c-4.79 0-8.601-3.549-9.963-7.178Z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                    </svg>
+                    }
+                </button>
+            </div>
+
+            @if (formCuenta.get('confirmPassword')?.touched && (formCuenta.get('confirmPassword')?.hasError('required')
+            || formCuenta.hasError('noCoinciden'))) {
+            <p class="mt-2 text-sm text-red-600">
+                @if (formCuenta.get('confirmPassword')?.hasError('required')) {
+                Confirma tu contraseña
+                } @else if (formCuenta.hasError('noCoinciden')) {
+                Las contraseñas no coinciden
+                }
+            </p>
+            }
+        </div>
+
+        <button type="submit" [disabled]="formCuenta.invalid"
+            class="text-white bg-indigo-700 hover:bg-indigo-800 focus:ring-4 focus:outline-none focus:ring-indigo-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center disabled:opacity-50 transition-all">
+            Registrarse
+        </button>
+    </form>
+</div>
