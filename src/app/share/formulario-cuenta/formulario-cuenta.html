@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
     <div class="sm:mx-auto sm:w-full sm:max-w-md mb-8">
         <h2 class="text-center text-3xl font-extrabold text-gray-900">
@@ -113,4 +114,70 @@
             Registrarse
         </button>
     </form>
+=======
+<div class="min-h-screen bg-black flex flex-col justify-center py-12 px-6">
+    <div class="sm:mx-auto sm:w-full sm:max-w-md mb-8">
+        <h2 class="text-center text-3xl font-bold text-white uppercase italic">
+            Crear <span class="text-blue-500">Cuenta</span>
+        </h2>
+    </div>
+
+    <div class="sm:mx-auto sm:w-full sm:max-w-md">
+        <div class="bg-gray-900 p-8 rounded-2xl border border-gray-800 shadow-2xl">
+            <form [formGroup]="formCuenta" (ngSubmit)="registrar()" class="space-y-6">
+
+                <!-- Correo -->
+                <div>
+                    <label
+                        class="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-2 px-1">Email</label>
+                    <input formControlName="email" type="email" placeholder="nombre@correo.com"
+                        class="bg-black border border-gray-800 text-white rounded-xl focus:border-blue-500 focus:ring-1 focus:ring-blue-500 block w-full p-3 outline-none transition-all">
+
+                    <p *ngIf="formCuenta.get('email')?.invalid && formCuenta.get('email')?.touched"
+                        class="mt-2 text-xs text-red-500 font-bold">
+                        Correo no válido o incompleto
+                    </p>
+                </div>
+
+                <!-- Clave -->
+                <div>
+                    <label
+                        class="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-2 px-1">Contraseña</label>
+                    <div class="relative">
+                        <input formControlName="password" [type]="mostrarPassword ? 'text' : 'password'"
+                            class="bg-black border border-gray-800 text-white rounded-xl focus:border-blue-500 focus:ring-1 focus:ring-blue-500 block w-full p-3 outline-none transition-all">
+                        <button type="button" (click)="mostrarPassword = !mostrarPassword"
+                            class="absolute inset-y-0 right-3 flex items-center text-gray-500">
+                            {{ mostrarPassword ? '🙈' : '👁️' }}
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Confirmar Clave -->
+                <div>
+                    <label
+                        class="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-2 px-1">Confirmar</label>
+                    <div class="relative">
+                        <input formControlName="confirmPassword" [type]="mostrarPassword2 ? 'text' : 'password'"
+                            class="bg-black border border-gray-800 text-white rounded-xl focus:border-blue-500 focus:ring-1 focus:ring-blue-500 block w-full p-3 outline-none transition-all">
+                        <button type="button" (click)="mostrarPassword2 = !mostrarPassword2"
+                            class="absolute inset-y-0 right-3 flex items-center text-gray-500">
+                            {{ mostrarPassword2 ? '🙈' : '👁️' }}
+                        </button>
+                    </div>
+
+                    <p *ngIf="formCuenta.hasError('noCoinciden') && formCuenta.get('confirmPassword')?.touched"
+                        class="mt-2 text-xs text-red-500 font-bold">
+                        Las contraseñas no son iguales
+                    </p>
+                </div>
+
+                <button type="submit" [disabled]="formCuenta.invalid"
+                    class="w-full bg-blue-600 hover:bg-blue-500 text-white font-black py-3 rounded-xl transition-all shadow-lg active:scale-95 disabled:opacity-30 disabled:cursor-not-allowed uppercase tracking-widest text-sm">
+                    Registrarse
+                </button>
+            </form>
+        </div>
+    </div>
+>>>>>>> f97593bb23978f6336a652ca057a0e40d5eb3b49
 </div>

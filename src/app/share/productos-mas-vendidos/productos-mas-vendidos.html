@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <section class="bg-white py-12 antialiased dark:bg-gray-900 md:py-16">
     <div class="mx-auto max-w-screen-xl px-4 2xl:px-0">
         <!-- Heading -->
@@ -10,10 +11,23 @@
                     fill="none" viewBox="0 0 24 24">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                         d="M19 12H5m14 0-4 4m4-4-4-4" />
+=======
+<section class="bg-primary-950 py-16 antialiased">
+    <div class="mx-auto max-w-screen-xl px-4 2xl:px-0">
+        <div class="mb-10 flex items-center justify-between gap-4">
+            <h2 class="text-2xl font-black text-white tracking-tight">Top Ventas</h2>
+            <a routerLink="/productos"
+                class="flex items-center text-sm font-bold text-accent-500 hover:text-accent-400 transition-colors uppercase tracking-widest">
+                Ver todo
+                <svg class="ms-2 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3">
+                    </path>
+>>>>>>> f97593bb23978f6336a652ca057a0e40d5eb3b49
                 </svg>
             </a>
         </div>
 
+<<<<<<< HEAD
         <div class="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
             @for (producto of productos; track producto.id) {
             <div
@@ -53,6 +67,34 @@
                                     d="M4 4h1.5L8 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm.75-3H7.5M11 7H6.312M17 4H6.312" />
                             </svg>
                             Añadir
+=======
+        <div class="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+            @for (producto of productos; track producto.id) {
+            <div class="glass-morphism rounded-2xl p-5 hover:border-accent-600/30 transition-all group">
+                <div class="aspect-square w-full mb-5 overflow-hidden rounded-xl bg-primary-900/50">
+                    <img class="h-full w-full object-cover group-hover:scale-110 transition-transform duration-500"
+                        [src]="producto.imageUrl" [alt]="producto.name" />
+                </div>
+                <div class="space-y-3">
+                    <span
+                        class="text-[10px] font-black uppercase tracking-widest text-accent-500/80 bg-accent-500/5 px-2 py-1 rounded border border-accent-500/10">
+                        {{ producto.category }}
+                    </span>
+                    <h3
+                        class="text-base font-bold text-white line-clamp-1 group-hover:text-accent-500 transition-colors">
+                        {{ producto.name }}
+                    </h3>
+                    <div class="flex items-center justify-between pt-2">
+                        <p class="text-lg font-black text-white">
+                            {{ producto.price | currency:'USD':'symbol':'1.2-2' }}
+                        </p>
+                        <button type="button"
+                            class="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-white hover:bg-accent-600 transition-colors">
+                            <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
+                            </svg>
+>>>>>>> f97593bb23978f6336a652ca057a0e40d5eb3b49
                         </button>
                     </div>
                 </div>

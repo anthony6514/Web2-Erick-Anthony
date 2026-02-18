@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <app-hero titulo="Bienvenido a Trato" subtitulo="Tu Tienda Online de Confianza"
     descripcion="Descubre los mejores productos de tecnología con precios competitivos y entrega rápida."
     imagen="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=1200&q=80"
@@ -5,5 +6,50 @@
 </app-hero>
 
 <app-productos-mas-vendidos></app-productos-mas-vendidos>
+=======
+<app-hero titulo="Bienvenido a Trato" subtitulo="Tu Mercado Online Favorito"
+    descripcion="Descubre lo mejor para tu hogar, moda y estilo con precios increíbles y entrega garantizada."
+    button="Ver Ofertas">
+</app-hero>
+
+<section class="py-20 px-6 bg-primary-950">
+    <div class="max-w-7xl mx-auto">
+        <app-section-header title="Nuestros Servicios"
+            subtitle="Ofrecemos la mejor experiencia de compra con beneficios exclusivos para nuestros clientes.">
+        </app-section-header>
+        <div class="flex justify-center -mt-6 mb-10">
+            <app-status-badge label="Actualizado Hoy" type="info"></app-status-badge>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+            <app-feature-item
+                imagenUrl="https://images.unsplash.com/photo-1586769852836-bc069f19e1b6?auto=format&fit=crop&w=600&q=80"
+                title="Envío Rápido"
+                description="Recibe tus productos en tiempo récord directamente en la puerta de tu casa.">
+            </app-feature-item>
+            <app-feature-item
+                imagenUrl="https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=600&q=80"
+                title="Compra Segura"
+                description="Tus transacciones están protegidas con los más altos estándares de seguridad.">
+            </app-feature-item>
+            <app-feature-item
+                imagenUrl="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=600&q=80"
+                title="Soporte 24/7"
+                description="Nuestro equipo de atención al cliente está siempre disponible para ayudarte.">
+            </app-feature-item>
+        </div>
+    </div>
+</section>
+
+<section class="py-20 px-6 bg-primary-900">
+    <div class="max-w-7xl mx-auto">
+        <app-section-header title="Productos Destacados"
+            subtitle="Echa un vistazo a lo que otros están comprando ahora mismo.">
+        </app-section-header>
+
+        <app-productos-mas-vendidos></app-productos-mas-vendidos>
+    </div>
+</section>
+>>>>>>> f97593bb23978f6336a652ca057a0e40d5eb3b49
 
 <app-carrito></app-carrito>

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <footer class="p-4 bg-white sm:p-6 dark:bg-gray-800 border-t border-gray-100">
     <div class="mx-auto max-w-screen-xl">
         <div class="md:flex md:justify-between">
@@ -15,11 +16,34 @@
                         @for (item of enlaces; track item.texto) {
                         <li class="mb-4">
                             <a [href]="item.link" class="hover:underline">{{ item.texto }}</a>
+=======
+<footer class="p-8 bg-primary-950 sm:p-12 border-t border-white/5">
+    <div class="mx-auto max-w-screen-xl">
+        <div class="md:flex md:justify-between">
+            <div class="mb-10 md:mb-0">
+                <a routerLink="/home" class="flex items-center group">
+                    <img src="https://cdn-icons-png.flaticon.com/128/15779/15779650.png" alt="Logo"
+                        class="w-10 h-10 mr-3 group-hover:rotate-12 transition-transform">
+                    <span class="self-center text-3xl font-black whitespace-nowrap text-white tracking-tighter">
+                        <span class="text-accent-500">T</span>RATO
+                    </span>
+                </a>
+                <p class="mt-4 text-gray-400 max-w-xs">Todo lo que necesitas para tu hogar y estilo a un solo click.</p>
+            </div>
+            <div class="grid grid-cols-2 gap-12 sm:gap-16 sm:grid-cols-3">
+                <div>
+                    <h2 class="mb-6 text-sm font-bold text-white uppercase tracking-widest">Enlaces</h2>
+                    <ul class="text-gray-400 space-y-4">
+                        @for (item of enlaces; track item.texto) {
+                        <li>
+                            <a [href]="item.link" class="hover:text-accent-500 transition-colors">{{ item.texto }}</a>
+>>>>>>> f97593bb23978f6336a652ca057a0e40d5eb3b49
                         </li>
                         }
                     </ul>
                 </div>
                 <div>
+<<<<<<< HEAD
                     <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Síguenos</h2>
                     <ul class="text-gray-600 dark:text-gray-400">
                         <li class="mb-4">
@@ -27,10 +51,50 @@
                         </li>
                         <li>
                             <a href="#" class="hover:underline">Facebook</a>
+=======
+                    <h2 class="mb-6 text-sm font-bold text-white uppercase tracking-widest">Síguenos</h2>
+                    <ul class="text-gray-400 space-y-4">
+                        <li>
+                            <a href="#" class="flex items-center hover:text-white transition-colors group">
+                                <span
+                                    class="w-8 h-8 rounded-lg bg-[#E1306C]/10 flex items-center justify-center mr-3 group-hover:bg-[#E1306C] transition-colors">
+                                    <svg class="w-4 h-4 text-[#E1306C] group-hover:text-white transition-colors"
+                                        fill="currentColor" viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.791-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.209-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                                    </svg>
+                                </span>
+                                <span>Instagram</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="flex items-center hover:text-white transition-colors group">
+                                <span
+                                    class="w-8 h-8 rounded-lg bg-[#3b5998]/10 flex items-center justify-center mr-3 group-hover:bg-[#3b5998] transition-colors">
+                                    <svg class="w-4 h-4 text-[#3b5998] group-hover:text-white transition-colors"
+                                        fill="currentColor" viewBox="0 0 24 24">
+                                        <path
+                                            d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                                    </svg>
+                                </span>
+                                <span>Facebook</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="flex items-center hover:text-white transition-colors group">
+                                <span
+                                    class="w-8 h-8 rounded-lg bg-[#25D366]/10 flex items-center justify-center mr-3 group-hover:bg-[#25D366] transition-colors overflow-hidden">
+                                    <img src="https://cdn-icons-png.flaticon.com/128/1384/1384023.png" alt="WhatsApp"
+                                        class="w-5 h-5 object-contain [filter:invert(52%)_sepia(92%)_threshold(43%)_hue-rotate(94deg)_brightness(91%)_contrast(101%)] group-hover:brightness-0 group-hover:invert transition-all">
+                                </span>
+                                <span>WhatsApp</span>
+                            </a>
+>>>>>>> f97593bb23978f6336a652ca057a0e40d5eb3b49
                         </li>
                     </ul>
                 </div>
                 <div>
+<<<<<<< HEAD
                     <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Legal</h2>
                     <ul class="text-gray-600 dark:text-gray-400">
                         <li class="mb-4">
@@ -39,15 +103,31 @@
                         <li>
                             <a href="#" class="hover:underline">Términos</a>
                         </li>
+=======
+                    <h2 class="mb-6 text-sm font-bold text-white uppercase tracking-widest">Legal</h2>
+                    <ul class="text-gray-400 space-y-4">
+                        <li><a href="#" class="hover:text-accent-500 transition-colors">Privacidad</a></li>
+                        <li><a href="#" class="hover:text-accent-500 transition-colors">Términos</a></li>
+>>>>>>> f97593bb23978f6336a652ca057a0e40d5eb3b49
                     </ul>
                 </div>
             </div>
         </div>
+<<<<<<< HEAD
         <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
         <div class="sm:flex sm:items-center sm:justify-between">
             <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© {{ anio }} <a routerLink="/home"
                     class="hover:underline">Trato™</a>. Todos los derechos reservados.
             </span>
+=======
+        <div class="my-10 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+        <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+            <span class="text-sm text-gray-500">© {{ anio }} <a routerLink="/home"
+                    class="hover:text-accent-500">Trato™</a>. Todos los derechos reservados.</span>
+            <div class="flex gap-6">
+                <span class="text-sm text-gray-500 italic">Hecho con ❤️ para ti</span>
+            </div>
+>>>>>>> f97593bb23978f6336a652ca057a0e40d5eb3b49
         </div>
     </div>
 </footer>

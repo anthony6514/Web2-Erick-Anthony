@@ -16,6 +16,7 @@ export class FormularioCuenta {
     mostrarPassword = false;
     mostrarPassword2 = false;
 
+<<<<<<< HEAD
     //validacion
     reglaEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-z]{2,}$/;
     reglaPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
@@ -35,6 +36,20 @@ export class FormularioCuenta {
         if (!clave2) return null;
 
         return clave === clave2 ? null : { noCoinciden: true };
+=======
+    // Reglas básicas
+    formCuenta = this.fb.group({
+        email: ['', [Validators.required, Validators.email]],
+        password: ['', [Validators.required, Validators.minLength(8)]],
+        confirmPassword: ['', [Validators.required]]
+    }, { validators: this.validarClaves });
+
+    // Método para validar que las claves sean iguales
+    validarClaves(control: any) {
+        const password = control.get('password')?.value;
+        const confirmPassword = control.get('confirmPassword')?.value;
+        return password === confirmPassword ? null : { noCoinciden: true };
+>>>>>>> f97593bb23978f6336a652ca057a0e40d5eb3b49
     }
 
     //metodo mostrar errores personalizados
@@ -61,7 +76,11 @@ export class FormularioCuenta {
             phone: 'Not provided'
         };
 
+<<<<<<< HEAD
 }
+=======
+    }
+>>>>>>> f97593bb23978f6336a652ca057a0e40d5eb3b49
 }
 
 
