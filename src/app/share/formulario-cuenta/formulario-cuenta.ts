@@ -1,7 +1,8 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule, Validators, FormBuilder, AbstractControl, ValidationErrors } from '@angular/forms';
-import { UsuarioServicio, Usuario } from '../../services/usuario-servicio';
+import { UsuarioServicio } from '../../services/usuario-servicio';
+import { Usuario } from '../../models/usuario';
 
 @Component({
     selector: 'app-formulario-cuenta',
@@ -56,9 +57,11 @@ export class FormularioCuenta {
         const datosForm = this.formCuenta.value;
 
         const nuevoUsuario: Usuario = {
-            name: 'Usuario Nuevo', // Valor por defecto ya que el form no lo tiene
+            name: 'Usuario Nuevo',
             email: datosForm.email!,
-            phone: 'Not provided'
+            password: datosForm.password!,
+            phone: 'Not provided',
+            rol: 'CLIENTE' // Default for registration
         };
 
         this.usuarioServicio.postUsuario(nuevoUsuario).subscribe({

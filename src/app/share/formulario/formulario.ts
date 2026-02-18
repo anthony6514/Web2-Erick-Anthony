@@ -1,7 +1,9 @@
 import { Component, inject, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { UsuarioServicio, Usuario } from '../../services/usuario-servicio';
+import { UsuarioServicio } from '../../services/usuario-servicio';
+import { Usuario } from '../../models/usuario';
+import { AuthService } from '../../services/auth-service/auth-service';
 
 @Component({
   selector: 'app-formulario',
@@ -13,6 +15,7 @@ import { UsuarioServicio, Usuario } from '../../services/usuario-servicio';
 export class Formulario implements OnInit {
 
   private servicioUsuario = inject(UsuarioServicio);
+  public servicioAuth = inject(AuthService);
 
   listaUsuarios = signal<Usuario[]>([]);
 
@@ -20,7 +23,8 @@ export class Formulario implements OnInit {
     name: '',
     email: '',
     phone: '',
-    password: ''
+    password: '',
+    rol: 'EMPLEADO'
   };
 
 
@@ -43,7 +47,8 @@ export class Formulario implements OnInit {
       name: '',
       email: '',
       phone: '',
-      password: ''
+      password: '',
+      rol: 'EMPLEADO'
     };
     this.editando = false;
   }
@@ -57,7 +62,15 @@ export class Formulario implements OnInit {
   }
 
   // Método Eliminar
-  eliminarUsuario(id: number) {
+  eliminarUsuario(id: string | number | undefined) {
+    if (!id) return;
+
+    // RBAC: Solo ADMIN y EMPLEADO pueden eliminar usuarios
+    if (this.servicioAuth.rolActual() === 'CLIENTE') {
+      alert('No tienes permisos para eliminar usuarios.');
+      return;
+    }
+
     if (confirm('¿Desea eliminar el registro?')) {
       this.servicioUsuario.deleteUsuario(id).subscribe(() => {
         this.obtenerUsuarios();
@@ -67,11 +80,22 @@ export class Formulario implements OnInit {
 
   //metodo poner datos seleccionados en el formulario para editar
   seleccionarParaEditar(usuario: Usuario) {
+    // RBAC: Solo ADMIN y EMPLEADO pueden editar usuarios
+    if (this.servicioAuth.rolActual() === 'CLIENTE') {
+      alert('No tienes permisos para editar usuarios.');
+      return;
+    }
     this.editando = true;
     this.nuevoUsuario = { ...usuario };
   }
 
   guardarUsuario() {
+    // RBAC: Solo ADMIN y EMPLEADO pueden crear/actualizar usuarios
+    if (this.servicioAuth.rolActual() === 'CLIENTE') {
+      alert('No tienes permisos para crear o actualizar usuarios.');
+      return;
+    }
+
     if (this.validarFormulario()) {
       if (this.editando && this.nuevoUsuario.id) {
 
@@ -96,9 +120,10 @@ export class Formulario implements OnInit {
       alert('Por favor completa los campos del formulario');
     }
   }
+
   //resetear el formulario
   resetear() {
-    this.nuevoUsuario = { name: '', email: '', phone: '', password: '' };
+    this.nuevoUsuario = { name: '', email: '', phone: '', password: '', rol: 'EMPLEADO' };
     this.editando = false;
   }
 }

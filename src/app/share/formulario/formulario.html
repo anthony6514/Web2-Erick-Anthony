@@ -3,11 +3,15 @@
   <div class="mb-10">
     <h1 class="text-3xl font-bold uppercase tracking-tight">
       Gestión de <span class="text-blue-500">Usuarios</span>
+      @if (servicioAuth.rolActual() === 'ADMIN') {
+      <span>🗿</span>
+      }
     </h1>
     <p class="text-gray-500 text-sm">Administración básica de la base de datos</p>
   </div>
 
   <!-- Formulario Simple pero elegante -->
+  @if (servicioAuth.rolActual() === 'ADMIN' || servicioAuth.rolActual() === 'EMPLEADO') {
   <div class="bg-gray-900/50 p-8 rounded-2xl border border-gray-800 mb-12 shadow-lg">
     <h2 class="text-lg font-bold mb-6">
       {{ editando ? 'Editar Datos' : 'Añadir Nuevo Usuario' }}
@@ -39,12 +43,37 @@
           class="bg-black border border-gray-800 p-3 rounded-lg focus:border-blue-500 outline-none">
       </div>
 
+      <div class="flex flex-col gap-2">
+        <label class="text-xs font-bold text-gray-500 uppercase">Rol</label>
+        <select name="rol" [(ngModel)]="nuevoUsuario.rol"
+          class="bg-black border border-gray-800 p-3 rounded-lg focus:border-blue-500 outline-none text-gray-400">
+          <option value="ADMIN">ADMIN</option>
+          <option value="EMPLEADO">EMPLEADO</option>
+          <option value="CLIENTE">CLIENTE</option>
+        </select>
+      </div>
+
       <button type="submit"
         class="md:col-span-3 bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 rounded-lg transition-all shadow-md">
         {{ editando ? 'Guardar Cambios' : 'Registrar Usuario' }}
       </button>
     </form>
   </div>
+  } @else {
+  <div
+    class="bg-gray-900/30 p-8 rounded-2xl border border-dashed border-gray-800 mb-12 flex flex-col items-center justify-center gap-4 text-center">
+    <div class="w-16 h-16 bg-gray-800/50 rounded-full flex items-center justify-center text-3xl">
+      🔒
+    </div>
+    <div>
+      <h2 class="text-xl font-bold text-gray-400">Acceso Restringido</h2>
+      <p class="text-gray-600 text-sm max-w-md mx-auto">
+        No tienes permisos suficientes para añadir o editar usuarios.
+        Ponte en contacto con un administrador si necesitas realizar cambios.
+      </p>
+    </div>
+  </div>
+  }
 
   <!-- Tabla de Usuarios -->
   <div class="bg-black rounded-2xl border border-gray-800 overflow-hidden">
@@ -55,7 +84,12 @@
           <th class="p-4">Nombre</th>
           <th class="p-4">Email</th>
           <th class="p-4">Teléfono</th>
+          <th class="p-4">Rol</th>
+          @if (servicioAuth.rolActual() === 'ADMIN' || servicioAuth.rolActual() === 'EMPLEADO') {
           <th class="p-4 text-center">Acciones</th>
+          } @else {
+          <th class="p-4 text-center text-gray-700">Estado</th>
+          }
         </tr>
       </thead>
       <tbody class="divide-y divide-gray-800">
@@ -64,6 +98,19 @@
           <td class="p-4 font-bold">{{ usuario.name }}</td>
           <td class="p-4 text-gray-400">{{ usuario.email }}</td>
           <td class="p-4 text-gray-400">{{ usuario.phone }}</td>
+          <td class="p-4">
+            <span class="px-2 py-1 rounded text-[10px] font-bold" [ngClass]="{
+                'bg-blue-500/20 text-blue-400': usuario.rol === 'ADMIN',
+                'bg-gray-500/20 text-gray-400': usuario.rol === 'EMPLEADO',
+                'bg-emerald-500/20 text-emerald-400': usuario.rol === 'CLIENTE'
+              }">
+              {{ usuario.rol }}
+              @if (usuario.rol === 'ADMIN') {
+              <span>🗿</span>
+              }
+            </span>
+          </td>
+          @if (servicioAuth.rolActual() === 'ADMIN' || servicioAuth.rolActual() === 'EMPLEADO') {
           <td class="p-4 text-center flex justify-center gap-2">
             <button (click)="seleccionarParaEditar(usuario)"
               class="bg-gray-800 p-2 rounded-lg hover:bg-blue-600 transition-colors">
@@ -74,6 +121,11 @@
               🗑️
             </button>
           </td>
+          } @else {
+          <td class="p-4 text-center text-gray-600 flex justify-center items-center gap-1 opacity-50">
+            <span class="text-xs italic uppercase tracking-wider">Bloqueado</span> 🔒
+          </td>
+          }
         </tr>
       </tbody>
     </table>

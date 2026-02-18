@@ -1,6 +1,6 @@
 import { Injectable, signal, inject } from '@angular/core';
-import { getAuth, signOut, User as FirebaseUser } from 'firebase/auth';
-import { UsuarioServicio, Usuario } from '../usuario-servicio';
+import { UsuarioServicio } from '../usuario-servicio';
+import { Usuario } from '../../models/usuario';
 import { Observable, map } from 'rxjs';
 
 @Injectable({
@@ -8,20 +8,25 @@ import { Observable, map } from 'rxjs';
 })
 export class AuthService {
   private servicioUsuario = inject(UsuarioServicio);
-  private auth = getAuth();
 
+  //localStorage
   sesionIniciada = signal<boolean>(localStorage.getItem('sesion') === 'true');
-  usuario = signal<Usuario | null>(JSON.parse(localStorage.getItem('user') || 'null'));
+
+  //ACCEDEMOS AL ROL DEL USUARIO
+  rolActual = signal<string | null>(localStorage.getItem('rol'));
 
   login(email: string, password: string): Observable<boolean> {
     return this.servicioUsuario.getUsuarios().pipe(
       map(usuarios => {
-        const usuarioEncontrado = usuarios.find(u => u.email === email && u.password === password);
-        if (usuarioEncontrado) {
+        const usuarioCoincide = usuarios.find(u => u.email === email && u.password === password);
+        if (usuarioCoincide) {
           localStorage.setItem('sesion', 'true');
-          localStorage.setItem('user', JSON.stringify(usuarioEncontrado));
+          localStorage.setItem('rol', usuarioCoincide.rol);
+          //guardar estos datos convirtiendo el objeto json a texto
+          localStorage.setItem('user', JSON.stringify(usuarioCoincide));
+
           this.sesionIniciada.set(true);
-          this.usuario.set(usuarioEncontrado);
+          this.rolActual.set(usuarioCoincide.rol);
           return true;
         }
         return false;
@@ -32,8 +37,8 @@ export class AuthService {
   logout() {
     localStorage.removeItem('sesion');
     localStorage.removeItem('user');
+    localStorage.removeItem('rol');
     this.sesionIniciada.set(false);
-    this.usuario.set(null);
-    signOut(this.auth);
+    this.rolActual.set(null);
   }
 }
