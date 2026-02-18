@@ -19,7 +19,8 @@ export class Formulario implements OnInit {
   nuevoUsuario: Usuario = {
     name: '',
     email: '',
-    phone: ''
+    phone: '',
+    password: ''
   };
 
 
@@ -41,16 +42,18 @@ export class Formulario implements OnInit {
     this.nuevoUsuario = {
       name: '',
       email: '',
-      phone: ''
+      phone: '',
+      password: ''
     };
     this.editando = false;
   }
 
   // Método para validar campos del formulario
   validarFormulario(): boolean {
-    return this.nuevoUsuario.name.trim() !== '' &&
-      this.nuevoUsuario.email.trim() !== '' &&
-      this.nuevoUsuario.phone.trim() !== '';
+    return !!(this.nuevoUsuario.name?.trim() &&
+      this.nuevoUsuario.email?.trim() &&
+      this.nuevoUsuario.phone?.trim() &&
+      (this.editando || this.nuevoUsuario.password?.trim()));
   }
 
   // Método Eliminar
@@ -95,7 +98,7 @@ export class Formulario implements OnInit {
   }
   //resetear el formulario
   resetear() {
-    this.nuevoUsuario = { name: '', email: '', phone: '' };
+    this.nuevoUsuario = { name: '', email: '', phone: '', password: '' };
     this.editando = false;
   }
 }

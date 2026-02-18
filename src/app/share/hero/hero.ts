@@ -5,44 +5,9 @@ import { CommonModule } from '@angular/common';
   selector: 'app-hero',
   standalone: true,
   imports: [CommonModule],
-<<<<<<< HEAD
-  // SOLUCIÓN: Usamos 'template' directo (con comillas invertidas `)
-  // en lugar de buscar un archivo externo. ¡Esto elimina el error NG2001!
-  template: `
-    <div class="relative isolate overflow-hidden bg-slate-900 py-16 sm:py-24">
-      
-      <img [src]="imagen" alt="" class="absolute inset-0 -z-10 h-full w-full object-cover opacity-30 blur-sm">
-      
-      <div class="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
-        <div class="mx-auto max-w-2xl lg:mx-0">
-          
-          <h2 class="text-4xl font-bold tracking-tight text-white sm:text-6xl">
-            {{ titulo }}
-          </h2>
-          
-          <p class="mt-4 text-xl text-indigo-300 font-semibold">
-            {{ subtitulo }}
-          </p>
-          
-          <p class="mt-6 text-lg leading-8 text-slate-300">
-            {{ descripcion }}
-          </p>
-          
-          <div class="mt-10 flex items-center gap-x-6" *ngIf="mostrarBoton">
-            <button class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 transition-colors">
-              {{ button }}
-            </button>
-          </div>
-
-        </div>
-      </div>
-    </div>
-  `,
-  styles: [] 
-=======
   template: `
     <div class="relative min-h-[500px] flex items-center overflow-hidden bg-black text-white">
-      
+
       <!-- Contenedor del Slide Actual -->
       <div class="absolute inset-0">
         <img [src]="slides[indexActual].imagen" class="w-full h-full object-cover opacity-40">
@@ -55,7 +20,7 @@ import { CommonModule } from '@angular/common';
           <h2 class="text-5xl font-bold mb-6 italic">{{ slides[indexActual].titulo }}</h2>
           <p class="text-xl text-blue-400 font-bold mb-4">{{ slides[indexActual].subtitulo }}</p>
           <p class="text-lg text-gray-300 mb-8">{{ slides[indexActual].descripcion }}</p>
-          
+
           <button *ngIf="mostrarBoton" class="bg-blue-600 px-6 py-3 rounded-lg font-bold hover:bg-blue-500 transition-colors">
             {{ button }}
           </button>
@@ -71,20 +36,15 @@ import { CommonModule } from '@angular/common';
     </div>
   `,
   styles: []
->>>>>>> f97593bb23978f6336a652ca057a0e40d5eb3b49
 })
 export class HeroComponent {
   @Input() titulo: string = '';
   @Input() subtitulo: string = '';
   @Input() descripcion: string = '';
   @Input() imagen: string = '';
-<<<<<<< HEAD
-  @Input() button: string = '';
-  @Input() mostrarBoton: boolean = true;
-  @Input() colorFondo: string = '';
-=======
   @Input() button: string = 'Ver más';
   @Input() mostrarBoton: boolean = true;
+  @Input() colorFondo: string = '';
 
   // Lista de fotos para el carrusel (Ahora como mercado general)
   slides = [
@@ -117,5 +77,4 @@ export class HeroComponent {
   anterior() {
     this.indexActual = (this.indexActual - 1 + this.slides.length) % this.slides.length;
   }
->>>>>>> f97593bb23978f6336a652ca057a0e40d5eb3b49
 }

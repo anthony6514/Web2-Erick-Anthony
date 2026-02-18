@@ -1,4 +1,3 @@
-
 export interface Product {
   id: string;
   name: string;
@@ -23,7 +22,6 @@ export const MOCK_API_PRODUCTS: ApiResponse = {
   "data": [
     {
       "id": "dcc0642f-c09c-413e-bb0d-c210ecdfa35b",
-<<<<<<< HEAD
       "name": "Laptop Profesional",
       "price": 899.99,
       "category": "Electrónica",
@@ -38,7 +36,10 @@ export const MOCK_API_PRODUCTS: ApiResponse = {
       "category": "Audio",
       "description": "Auriculares con cancelación de ruido y batería de 40 horas.",
       "imageUrl": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500",
-=======
+      "stock": 42
+    },
+    {
+      "id": "jacket-001",
       "name": "Chaqueta Impermeable",
       "price": 59.99,
       "category": "Ropa",
@@ -47,18 +48,16 @@ export const MOCK_API_PRODUCTS: ApiResponse = {
       "stock": 25
     },
     {
-      "id": "d4a2e04b-97dd-4e3d-bd6b-8f08e351e261",
+      "id": "shoes-001",
       "name": "Zapatillas Urbanas",
       "price": 79.99,
       "category": "Calzado",
       "description": "Comodidad y estilo para tu día a día con suela antideslizante.",
       "imageUrl": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500",
->>>>>>> f97593bb23978f6336a652ca057a0e40d5eb3b49
       "stock": 42
     },
     {
       "id": "9cf1567c-f7ea-4de8-9a03-1d55feed233e",
-<<<<<<< HEAD
       "name": "Monitor 4K",
       "price": 349.99,
       "category": "Pantallas",
@@ -94,41 +93,7 @@ export const MOCK_API_PRODUCTS: ApiResponse = {
       "stock": 35
     },
     {
-      "id": "bc14b37b-3645-416f-a9b2-3dbbcf678ac5",
-      "name": "Powerbank 30000mAh",
-      "price": 59.99,
-      "category": "Accesorios",
-      "description": "Cargador portátil con carga rápida para múltiples dispositivos.",
-      "imageUrl": "https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?w=500",
-      "stock": 50
-    },
-    {
-      "id": "98a708e1-326e-496b-a016-4558abb0673c",
-      "name": "Cable USB-C",
-      "price": 19.99,
-      "category": "Cables",
-      "description": "Cable USB-C de 2 metros con carga rápida 100W.",
-      "imageUrl": "https://www.steren.com.ec/media/catalog/product/cache/0236bbabe616ddcff749ccbc14f38bf2/image/20517f371/cable-usb-a-micro-usb-tipo-cordon-de-1-m.jpg",
-      "stock": 120
-    },
-    {
-      "id": "76255a18-bfc5-42b5-963c-95c307197af7",
-      "name": "Stand para Laptop",
-      "price": 39.99,
-      "category": "Accesorios",
-      "description": "Stand ajustable de aluminio para mejor ergonomía.",
-      "imageUrl": "https://promartecuador.vtexassets.com/arquivos/ids/252258-800-600?v=638959651282630000&width=800&height=600&aspect=true",
-      "stock": 30
-    },
-    {
-      "id": "d6357f35-14bc-46cd-9b3d-a8df4078c63f",
-      "name": "Mochila Antirrobo",
-      "price": 79.99,
-      "category": "Mochilas",
-      "description": "Mochila para laptop con cierre de seguridad y puerto USB.",
-      "imageUrl": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=500",
-      "stock": 22
-=======
+      "id": "lamp-001",
       "name": "Lámpara de Diseño",
       "price": 45.00,
       "category": "Hogar",
@@ -137,7 +102,7 @@ export const MOCK_API_PRODUCTS: ApiResponse = {
       "stock": 12
     },
     {
-      "id": "edcc6d3f-e9ee-45fc-b556-42ed70354ece",
+      "id": "coffee-001",
       "name": "Cafetera Express",
       "price": 120.00,
       "category": "Electrohogar",
@@ -146,7 +111,7 @@ export const MOCK_API_PRODUCTS: ApiResponse = {
       "stock": 8
     },
     {
-      "id": "493ea182-f0da-4446-b313-09c4f468994c",
+      "id": "watch-001",
       "name": "Reloj de Pulsera",
       "price": 150.00,
       "category": "Accesorios",
@@ -155,7 +120,7 @@ export const MOCK_API_PRODUCTS: ApiResponse = {
       "stock": 15
     },
     {
-      "id": "1d4394b2-34cf-4120-9013-f2c3573ed0c5",
+      "id": "skate-001",
       "name": "Skateboard Pro",
       "price": 89.99,
       "category": "Deportes",
@@ -164,7 +129,7 @@ export const MOCK_API_PRODUCTS: ApiResponse = {
       "stock": 10
     },
     {
-      "id": "bc14b37b-3645-416f-a9b2-3dbbcf678ac5",
+      "id": "camera-001",
       "name": "Cámara Vintage",
       "price": 299.00,
       "category": "Fotografía",
@@ -173,7 +138,7 @@ export const MOCK_API_PRODUCTS: ApiResponse = {
       "stock": 5
     },
     {
-      "id": "98a708e1-326e-496b-a016-4558abb0673c",
+      "id": "perfume-001",
       "name": "Perfume Signature",
       "price": 85.00,
       "category": "Belleza",
@@ -182,7 +147,7 @@ export const MOCK_API_PRODUCTS: ApiResponse = {
       "stock": 30
     },
     {
-      "id": "76255a18-bfc5-42b5-963c-95c307197af7",
+      "id": "tools-001",
       "name": "Set de Herramientas",
       "price": 49.99,
       "category": "Ferretería",
@@ -191,16 +156,15 @@ export const MOCK_API_PRODUCTS: ApiResponse = {
       "stock": 20
     },
     {
-      "id": "d6357f35-14bc-46cd-9b3d-a8df4078c63f",
+      "id": "backpack-001",
       "name": "Mochila Viajera",
       "price": 65.00,
       "category": "Accesorios",
       "description": "Amplia capacidad y compartimentos para todas tus pertenencias.",
       "imageUrl": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=500",
       "stock": 60
->>>>>>> f97593bb23978f6336a652ca057a0e40d5eb3b49
     }
   ],
-  "count": 10,
-  "total": 10
+  "count": 16,
+  "total": 16
 };

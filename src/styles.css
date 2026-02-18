@@ -1,8 +1,5 @@
-<<<<<<< HEAD
 /* You can add global styles to this file, and also import other style files */
 
-@import "tailwindcss";
-=======
 @import "tailwindcss";
 
 @theme {
@@ -31,4 +28,3 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
->>>>>>> f97593bb23978f6336a652ca057a0e40d5eb3b49

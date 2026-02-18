@@ -1,25 +1,39 @@
-import { Injectable } from '@angular/core';
-import { getAuth, signInWithEmailAndPassword, signOut, User } from 'firebase/auth';
+import { Injectable, signal, inject } from '@angular/core';
+import { getAuth, signOut, User as FirebaseUser } from 'firebase/auth';
+import { UsuarioServicio, Usuario } from '../usuario-servicio';
+import { Observable, map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  usuario: User | null = null;
+  private servicioUsuario = inject(UsuarioServicio);
   private auth = getAuth();
 
-  login(email: string, password: string) {
-    signInWithEmailAndPassword(this.auth, email, password)
-      .then(respuesta => {
-        this.usuario = respuesta.user;
+  sesionIniciada = signal<boolean>(localStorage.getItem('sesion') === 'true');
+  usuario = signal<Usuario | null>(JSON.parse(localStorage.getItem('user') || 'null'));
+
+  login(email: string, password: string): Observable<boolean> {
+    return this.servicioUsuario.getUsuarios().pipe(
+      map(usuarios => {
+        const usuarioEncontrado = usuarios.find(u => u.email === email && u.password === password);
+        if (usuarioEncontrado) {
+          localStorage.setItem('sesion', 'true');
+          localStorage.setItem('user', JSON.stringify(usuarioEncontrado));
+          this.sesionIniciada.set(true);
+          this.usuario.set(usuarioEncontrado);
+          return true;
+        }
+        return false;
       })
-      .catch(error => {
-        console.error("no puede iniciar sesión", error.message);
-      });
+    );
   }
 
   logout() {
+    localStorage.removeItem('sesion');
+    localStorage.removeItem('user');
+    this.sesionIniciada.set(false);
+    this.usuario.set(null);
     signOut(this.auth);
-    this.usuario = null;
   }
 }

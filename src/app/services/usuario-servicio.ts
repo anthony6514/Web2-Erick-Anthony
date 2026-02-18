@@ -8,10 +8,7 @@ export interface Usuario {
   name: string;
   email: string;
   phone: string;
-<<<<<<< HEAD
   password?: string;
-=======
->>>>>>> f97593bb23978f6336a652ca057a0e40d5eb3b49
   username?: string;
   website?: string;
 }
@@ -71,7 +68,6 @@ export class UsuarioServicio {
   deleteUsuario(id: number): Observable<void> {
     return this.http.delete<void>(`${this.API_URL}/usuarios/${id}.json`);
   }
-<<<<<<< HEAD
 
   // LOGIN: Simulación simple
   login(email: string, password: string): Observable<Usuario | null> {
@@ -82,6 +78,4 @@ export class UsuarioServicio {
       })
     );
   }
-=======
->>>>>>> f97593bb23978f6336a652ca057a0e40d5eb3b49
 }
