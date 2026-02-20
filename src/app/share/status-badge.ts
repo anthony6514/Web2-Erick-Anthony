@@ -19,7 +19,7 @@ export class StatusBadgeComponent {
     // Lógica simple con if/else para que sea fácil de leer
     getClase() {
         if (this.type === 'success') {
-            return 'bg-green-900/20 text-green-400 border-green-500/30';
+            return 'bg-accent-500/10 text-accent-500 border-accent-500/30';
         } else if (this.type === 'warning') {
             return 'bg-yellow-900/20 text-yellow-400 border-yellow-500/30';
         } else if (this.type === 'error') {

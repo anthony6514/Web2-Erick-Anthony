@@ -28,10 +28,10 @@ import { RouterLink } from '@angular/router';
               <div class="max-w-3xl space-y-8">
                 <div class="inline-flex items-center space-x-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 backdrop-blur-md">
                    <span class="relative flex h-2 w-2">
-                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#84CC16] opacity-75"></span>
-                    <span class="relative inline-flex rounded-full h-2 w-2 bg-[#84CC16]"></span>
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent-500 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-accent-500"></span>
                   </span>
-                  <p class="text-[10px] font-black uppercase tracking-[0.3em] text-[#84CC16]">{{ slide.subtitulo }}</p>
+                  <p class="text-[10px] font-black uppercase tracking-[0.3em] text-accent-500">{{ slide.subtitulo }}</p>
                 </div>
                 
                 <h1 class="text-6xl md:text-8xl font-black italic tracking-tighter text-white leading-[0.9]">
@@ -45,7 +45,7 @@ import { RouterLink } from '@angular/router';
 
                 <div class="flex flex-wrap gap-4 pt-4">
                   <a routerLink="/productos" 
-                    class="group relative inline-flex items-center justify-center overflow-hidden rounded-2xl bg-[#84CC16] px-8 py-4 font-black uppercase tracking-widest text-[#0a0a0c] transition-all hover:scale-105 hover:shadow-[0_0_40px_rgba(132,204,22,0.4)] active:scale-95">
+                    class="group relative inline-flex items-center justify-center overflow-hidden rounded-2xl bg-accent-500 px-8 py-4 font-black uppercase tracking-widest text-primary-950 transition-all hover:scale-105 hover:shadow-[0_0_40px_rgba(212,175,55,0.4)] active:scale-95">
                     <span class="relative z-10">{{ button }}</span>
                     <div class="absolute inset-0 -translate-x-full bg-white/20 transition-transform group-hover:translate-x-0"></div>
                   </a>
@@ -69,7 +69,7 @@ import { RouterLink } from '@angular/router';
             [style.width]="indexActual === $index ? '80px' : '40px'">
             <div class="h-full w-full rounded-full bg-white/10 transition-colors group-hover:bg-white/20"></div>
             <div 
-              class="absolute inset-0 h-full rounded-full bg-[#84CC16] transition-all duration-500"
+              class="absolute inset-0 h-full rounded-full bg-accent-500 transition-all duration-500"
               [style.width]="indexActual === $index ? '100.1%' : '0%'"></div>
           </button>
         }
@@ -77,10 +77,10 @@ import { RouterLink } from '@angular/router';
 
       <!-- Arrow Controls (Hidden on Mobile) -->
       <div class="absolute bottom-12 right-12 z-30 hidden md:flex items-center space-x-4">
-        <button (click)="anterior()" class="flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-white transition-all hover:bg-[#84CC16] hover:text-[#0a0a0c] hover:border-[#84CC16] active:scale-90">
+        <button (click)="anterior()" class="flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-white transition-all hover:bg-accent-500 hover:text-primary-950 hover:border-accent-500 active:scale-90">
           <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"></path></svg>
         </button>
-        <button (click)="siguiente()" class="flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-white transition-all hover:bg-[#84CC16] hover:text-[#0a0a0c] hover:border-[#84CC16] active:scale-90">
+        <button (click)="siguiente()" class="flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-white transition-all hover:bg-accent-500 hover:text-primary-950 hover:border-accent-500 active:scale-90">
           <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path></svg>
         </button>
       </div>

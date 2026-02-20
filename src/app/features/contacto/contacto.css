@@ -5,11 +5,11 @@
 
 form input:focus,
 form textarea:focus {
-    box-shadow: 0 0 0 4px rgba(132, 204, 22, 0.1);
+    box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.1);
 }
 
 .text-gradient {
-    background: linear-gradient(to right, #84CC16, #0F766E);
+    background: linear-gradient(to right, #D4AF37, #996515);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;

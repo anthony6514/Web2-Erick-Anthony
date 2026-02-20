@@ -1,10 +1,10 @@
 <section class="min-h-screen pt-32 pb-24 px-6 bg-[#0a0a0c] relative overflow-hidden">
     <!-- Background Accents -->
     <div
-        class="absolute top-0 right-0 w-[500px] h-[500px] bg-[#84CC16]/5 blur-[150px] rounded-full pointer-events-none">
+        class="absolute top-0 right-0 w-[500px] h-[500px] bg-accent-500/5 blur-[150px] rounded-full pointer-events-none">
     </div>
     <div
-        class="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#0F766E]/5 blur-[150px] rounded-full pointer-events-none">
+        class="absolute bottom-0 left-0 w-[500px] h-[500px] bg-accent-600/5 blur-[150px] rounded-full pointer-events-none">
     </div>
 
     <div class="max-w-7xl mx-auto relative z-10">
@@ -36,7 +36,7 @@
                             </svg>
                         </div>
                         <div>
-                            <p class="text-xs font-black uppercase tracking-widest text-[#84CC16]">Email</p>
+                            <p class="text-xs font-black uppercase tracking-widest text-accent-500">Email</p>
                             <p class="text-white font-bold">contacto@trato.tech</p>
                         </div>
                     </div>
@@ -54,7 +54,7 @@
                             </svg>
                         </div>
                         <div>
-                            <p class="text-xs font-black uppercase tracking-widest text-[#84CC16]">Ubicación</p>
+                            <p class="text-xs font-black uppercase tracking-widest text-accent-500">Ubicación</p>
                             <p class="text-white font-bold">Distrito Tech, Silicon Valley</p>
                         </div>
                     </div>
@@ -64,7 +64,7 @@
             <!-- Contact Form -->
             <div class="bg-white/5 backdrop-blur-xl border border-white/10 p-10 rounded-[3rem] shadow-2xl relative">
                 <div
-                    class="absolute inset-0 bg-gradient-to-br from-[#84CC16]/5 to-transparent rounded-[3rem] pointer-events-none">
+                    class="absolute inset-0 bg-gradient-to-br from-accent-500/5 to-transparent rounded-[3rem] pointer-events-none">
                 </div>
 
                 <form (ngSubmit)="enviarFormulario()" #formContacto="ngForm" class="space-y-8 relative z-10">
@@ -72,7 +72,7 @@
                         <label class="text-xs font-black uppercase tracking-widest text-gray-500 ml-4">Nombre
                             Completo</label>
                         <input type="text" name="nombre" [(ngModel)]="contacto.nombre" required
-                            class="w-full bg-[#0a0a0c]/50 border border-white/10 rounded-2xl px-6 py-4 text-white focus:outline-none focus:border-[#84CC16] transition-all placeholder:text-gray-700"
+                            class="w-full bg-[#0a0a0c]/50 border border-white/10 rounded-2xl px-6 py-4 text-white focus:outline-none focus:border-accent-500 transition-all placeholder:text-gray-700"
                             placeholder="Ej. Erick Anthony">
                     </div>
 
@@ -80,19 +80,19 @@
                         <label class="text-xs font-black uppercase tracking-widest text-gray-500 ml-4">Email
                             Corporativo</label>
                         <input type="email" name="email" [(ngModel)]="contacto.email" required
-                            class="w-full bg-[#0a0a0c]/50 border border-white/10 rounded-2xl px-6 py-4 text-white focus:outline-none focus:border-[#84CC16] transition-all placeholder:text-gray-700"
+                            class="w-full bg-[#0a0a0c]/50 border border-white/10 rounded-2xl px-6 py-4 text-white focus:outline-none focus:border-accent-500 transition-all placeholder:text-gray-700"
                             placeholder="anthony@trato.tech">
                     </div>
 
                     <div class="space-y-2">
                         <label class="text-xs font-black uppercase tracking-widest text-gray-500 ml-4">Mensaje</label>
                         <textarea name="mensaje" [(ngModel)]="contacto.mensaje" required rows="4"
-                            class="w-full bg-[#0a0a0c]/50 border border-white/10 rounded-2xl px-6 py-4 text-white focus:outline-none focus:border-[#84CC16] transition-all placeholder:text-gray-700 resize-none"
+                            class="w-full bg-[#0a0a0c]/50 border border-white/10 rounded-2xl px-6 py-4 text-white focus:outline-none focus:border-accent-500 transition-all placeholder:text-gray-700 resize-none"
                             placeholder="Describe tu requerimiento técnico..."></textarea>
                     </div>
 
                     <button type="submit" [disabled]="!formContacto.valid"
-                        class="w-full bg-[#84CC16] text-[#0a0a0c] font-black uppercase tracking-[0.2em] py-5 rounded-2xl transition-all hover:scale-[1.02] hover:shadow-[0_20px_40px_rgba(132,204,22,0.3)] disabled:opacity-50 disabled:grayscale disabled:scale-100">
+                        class="w-full bg-accent-500 text-primary-950 font-black uppercase tracking-[0.2em] py-5 rounded-2xl transition-all hover:scale-[1.02] hover:shadow-[0_20px_40px_rgba(212,175,55,0.3)] disabled:opacity-50 disabled:grayscale disabled:scale-100">
                         Enviar Requerimiento
                     </button>
                 </form>

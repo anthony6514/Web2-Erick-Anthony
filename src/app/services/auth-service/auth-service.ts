@@ -9,10 +9,8 @@ import { Observable, map } from 'rxjs';
 export class AuthService {
   private servicioUsuario = inject(UsuarioServicio);
 
-  //localStorage
   sesionIniciada = signal<boolean>(localStorage.getItem('sesion') === 'true');
 
-  //ACCEDEMOS AL ROL DEL USUARIO
   rolActual = signal<string | null>(localStorage.getItem('rol'));
 
   login(email: string, password: string): Observable<boolean> {
@@ -22,7 +20,6 @@ export class AuthService {
         if (usuarioCoincide) {
           localStorage.setItem('sesion', 'true');
           localStorage.setItem('rol', usuarioCoincide.rol);
-          //guardar estos datos convirtiendo el objeto json a texto
           localStorage.setItem('user', JSON.stringify(usuarioCoincide));
 
           this.sesionIniciada.set(true);

@@ -21,7 +21,11 @@ export class Login {
     this.authService.login(this.email, this.password).subscribe((success) => {
       if (success) {
         alert("Bienvenidos al sistema");
-        this.router.navigate(['/usuarios']);
+        if (this.authService.rolActual()?.trim().toLowerCase() === 'admin') {
+          this.router.navigate(['/usuarios']);
+        } else {
+          this.router.navigate(['/home']);
+        }
       } else {
         alert("Error: usuario no autenticado");
       }

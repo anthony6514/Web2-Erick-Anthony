@@ -1,15 +1,19 @@
-<div class="p-8 font-sans bg-[#020617] min-h-screen relative overflow-hidden">
-    
-    <div class="absolute top-[-10%] left-[-10%] w-[600px] h-[600px] bg-[#0F766E]/20 blur-[150px] rounded-full pointer-events-none"></div>
-    <div class="absolute bottom-[-10%] right-[-10%] w-[500px] h-[500px] bg-[#84CC16]/10 blur-[150px] rounded-full pointer-events-none"></div>
+<div class="p-8 font-sans bg-primary-950 min-h-screen relative overflow-hidden">
+
+    <div
+        class="absolute top-[-10%] left-[-10%] w-[600px] h-[600px] bg-accent-600/10 blur-[150px] rounded-full pointer-events-none">
+    </div>
+    <div
+        class="absolute bottom-[-10%] right-[-10%] w-[500px] h-[500px] bg-accent-500/5 blur-[150px] rounded-full pointer-events-none">
+    </div>
 
     <div class="relative z-10 mb-12">
         <div class="flex items-center gap-3 mb-2">
-            <span class="w-8 h-[2px] bg-[#84CC16]"></span>
-            <span class="text-[10px] font-black text-[#84CC16] uppercase tracking-[0.4em]">Logística Activa</span>
+            <span class="w-8 h-[2px] bg-accent-500"></span>
+            <span class="text-[10px] font-black text-accent-500 uppercase tracking-[0.4em]">Logística Activa</span>
         </div>
         <h1 class="text-5xl font-black tracking-tighter italic uppercase text-white">
-            Mi <span class="text-transparent bg-clip-text bg-gradient-to-r from-white to-[#84CC16]">Carrito</span>
+            Mi <span class="text-transparent bg-clip-text bg-gradient-to-r from-white to-accent-500">Carrito</span>
         </h1>
         <p class="text-white/40 text-xs font-medium mt-2 max-w-md uppercase tracking-wider">
             Gestión de inventario personal y logística en tiempo real.
@@ -18,32 +22,40 @@
 
     <div class="mb-16 max-w-xl mx-auto relative z-10">
         <div class="relative group">
-            <div class="absolute inset-y-0 left-5 flex items-center pointer-events-none transition-transform group-focus-within:scale-110">
-                <svg class="w-5 h-5 text-[#84CC16]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke-width="3" stroke-linecap="round"></path>
+            <div
+                class="absolute inset-y-0 left-5 flex items-center pointer-events-none transition-transform group-focus-within:scale-110">
+                <svg class="w-5 h-5 text-accent-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke-width="3" stroke-linecap="round">
+                    </path>
                 </svg>
             </div>
             <input type="text" id="buscar" placeholder="BUSCAR PRODUCTO..."
-                class="bg-white/[0.03] border border-white/10 backdrop-blur-xl pl-14 pr-6 py-5 rounded-[2rem] w-full text-white placeholder-white/10 focus:ring-2 focus:ring-[#84CC16]/30 focus:border-[#84CC16] outline-none transition-all uppercase text-[10px] font-black tracking-widest"
+                class="bg-white/[0.03] border border-white/10 backdrop-blur-xl pl-14 pr-6 py-5 rounded-[2rem] w-full text-white placeholder-white/10 focus:ring-2 focus:ring-accent-500/30 focus:border-accent-500 outline-none transition-all uppercase text-[10px] font-black tracking-widest"
                 [(ngModel)]="busqueda">
         </div>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 relative z-10">
         @for (item of itemsFiltrados; track item.nombre) {
-        <div class="group relative bg-[#0F172A]/60 backdrop-blur-md border border-white/5 rounded-[2.5rem] p-8 transition-all duration-500 hover:bg-[#0F172A]/90 hover:-translate-y-2 hover:shadow-[0_40px_80px_-20px_rgba(0,0,0,0.8)]">
-            
+        <div
+            class="group relative bg-primary-900/60 backdrop-blur-md border border-white/5 rounded-[2.5rem] p-8 transition-all duration-500 hover:bg-primary-900/90 hover:-translate-y-2 hover:shadow-[0_40px_80px_-20px_rgba(0,0,0,0.8)]">
+
             <div class="mb-8 flex justify-between items-start">
                 <div class="min-w-0">
-                    <span class="text-[9px] font-black text-[#84CC16] uppercase tracking-[0.3em] mb-2 block opacity-80">
+                    <span
+                        class="text-[9px] font-black text-accent-500 uppercase tracking-[0.3em] mb-2 block opacity-80">
                         {{ item.producto }}
                     </span>
-                    <h3 class="font-black text-2xl text-white group-hover:text-[#84CC16] transition-colors leading-tight italic uppercase truncate">
+                    <h3
+                        class="font-black text-2xl text-white group-hover:text-accent-500 transition-colors leading-tight italic uppercase truncate">
                         {{ item.nombre }}
                     </h3>
                 </div>
                 <div class="bg-black/40 p-3 rounded-2xl border border-white/5 shadow-inner">
-                    <svg class="w-5 h-5 text-[#84CC16]/40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" stroke-width="2"></path></svg>
+                    <svg class="w-5 h-5 text-accent-500/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" stroke-width="2">
+                        </path>
+                    </svg>
                 </div>
             </div>
 
@@ -56,18 +68,20 @@
             <div class="relative pt-1 bg-black/40 p-4 rounded-[1.8rem] border border-white/5">
                 <div class="flex mb-3 items-center justify-between px-1">
                     <span class="text-[9px] font-black uppercase tracking-widest text-white/30 italic">Logística</span>
-                    <span class="text-[11px] font-black text-[#84CC16] italic tracking-tighter">{{ item.progreso }}%</span>
+                    <span class="text-[11px] font-black text-accent-500 italic tracking-tighter">{{ item.progreso
+                        }}%</span>
                 </div>
-                
+
                 <div class="overflow-hidden h-1.5 flex rounded-full bg-white/5">
                     <div [style.width.%]="item.progreso"
-                        class="relative flex flex-col justify-center bg-gradient-to-r from-[#0F766E] to-[#84CC16] transition-all duration-1000">
+                        class="relative flex flex-col justify-center bg-gradient-to-r from-accent-600 to-accent-500 transition-all duration-1000">
                         <div class="absolute inset-0 bg-white/20 blur-[2px] w-full"></div>
                     </div>
                 </div>
             </div>
 
-            <button class="mt-8 w-full py-2 text-[8px] font-black uppercase tracking-[0.4em] text-white/10 hover:text-[#84CC16] transition-all border-t border-white/5 pt-6">
+            <button
+                class="mt-8 w-full py-2 text-[8px] font-black uppercase tracking-[0.4em] text-white/10 hover:text-accent-500 transition-all border-t border-white/5 pt-6">
                 Detalles de Orden
             </button>
         </div>

@@ -5,5 +5,9 @@ import { AuthService } from '../services/auth-service/auth-service';
 export const canMatchAdminGuard: CanMatchFn = (route, segments) => {
   const authService = inject(AuthService);
 
-  return authService.sesionIniciada() && authService.rolActual() === 'admin';
+  if (!authService.sesionIniciada()) {
+    return true;
+  }
+
+  return authService.rolActual()?.trim().toLowerCase() === 'admin';
 };

@@ -10,6 +10,7 @@ import { ContactoComponent } from './features/contacto/contacto';
 import { authGuard } from './guards/auth-guard';
 import { adminGuard } from './guards/admin-guard';
 import { canMatchAdminGuard } from './guards/can-match-admin-guard';
+import { adminChildGuard } from './guards/admin-child-guard';
 
 export const routes: Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },

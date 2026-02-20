@@ -14,7 +14,7 @@ import { CommonModule } from '@angular/common';
         {{ subtitle }}
       </p>
       <div class="mt-4 flex justify-center">
-        <div class="h-1 w-20 bg-[#84CC16] rounded-full"></div>
+        <div class="h-1 w-20 bg-accent-500 rounded-full"></div>
       </div>
     </div>
   `,

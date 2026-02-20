@@ -17,7 +17,6 @@ export class FormularioCuenta {
     mostrarPassword = false;
     mostrarPassword2 = false;
 
-    //validacion
     reglaEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-z]{2,}$/;
     reglaPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
 
@@ -27,18 +26,15 @@ export class FormularioCuenta {
         confirmPassword: ['', [Validators.required, Validators.pattern(this.reglaPassword)]]
     }, { validators: this.validarClaves });
 
-    //metodo validar que las claves coincidan
     validarClaves(group: AbstractControl): ValidationErrors | null {
         const clave = group.get('password')?.value;
         const clave2 = group.get('confirmPassword')?.value;
 
-        // Si no hay confirmPassword, no validamos aun
         if (!clave2) return null;
 
         return clave === clave2 ? null : { noCoinciden: true };
     }
 
-    //metodo mostrar errores personalizados
     mostrarError(campo: string, tipoError: string) {
         const input = this.formCuenta.get(campo);
         if (input && input.invalid && input.touched) {
@@ -47,7 +43,6 @@ export class FormularioCuenta {
         return false;
     }
 
-    //METODO REGISTRAR
     registrar() {
         if (this.formCuenta.invalid) {
             this.formCuenta.markAllAsTouched();
@@ -61,7 +56,7 @@ export class FormularioCuenta {
             email: datosForm.email!,
             password: datosForm.password!,
             phone: 'Not provided',
-            rol: 'CLIENTE' // Default for registration
+            rol: 'CLIENTE'
         };
 
         this.usuarioServicio.postUsuario(nuevoUsuario).subscribe({
