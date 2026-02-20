@@ -6,17 +6,39 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   template: `
-    <div class="bg-gray-900 border border-gray-800 p-8 rounded-2xl hover:border-blue-500 transition-all duration-300 group shadow-lg">
-      <div class="w-full h-40 bg-black rounded-xl mb-6 overflow-hidden">
-        <img [src]="imagenUrl" [alt]="title" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 opacity-80 group-hover:opacity-100">
+    <div class="group relative overflow-hidden rounded-[2.5rem] bg-[#0F172A] border border-white/5 p-2 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_40px_80px_-20px_rgba(132,204,22,0.2)]">
+      <!-- Image Container -->
+      <div class="relative aspect-[16/10] w-full overflow-hidden rounded-[2.2rem]">
+        <div class="absolute inset-0 bg-gradient-to-t from-[#0F172A] via-transparent to-transparent z-10 opacity-60"></div>
+        <img [src]="imagenUrl" [alt]="title" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110">
+        
+        <!-- Icon Overlay (Optional) -->
+        <div class="absolute top-4 left-4 z-20">
+          <div class="bg-[#84CC16] p-2.5 rounded-xl shadow-lg shadow-[#84CC16]/20 transform -rotate-6 group-hover:rotate-0 transition-transform duration-500">
+            <ng-content select="[icon]"></ng-content>
+          </div>
+        </div>
       </div>
-      <h3 class="text-xl font-bold text-white mb-2 group-hover:text-blue-500 transition-colors uppercase tracking-tight">
-        {{ title }}
-      </h3>
-      <p class="text-gray-400 text-sm leading-relaxed">{{ description }}</p>
+
+      <!-- Content -->
+      <div class="p-6">
+        <h3 class="text-xl font-black text-white group-hover:text-[#84CC16] transition-colors leading-tight uppercase italic mb-3">
+          {{ title }}
+        </h3>
+        <p class="text-gray-400 text-xs font-medium leading-relaxed uppercase tracking-wider opacity-60 group-hover:opacity-100 transition-opacity">
+          {{ description }}
+        </p>
+      </div>
+
+      <!-- Bottom Accent -->
+      <div class="absolute bottom-0 left-0 h-1 bg-gradient-to-r from-transparent via-[#84CC16] to-transparent w-full opacity-0 group-hover:opacity-40 transition-opacity"></div>
     </div>
   `,
-  styles: []
+  styles: [`
+    :host {
+      display: block;
+    }
+  `]
 })
 export class FeatureItemComponent {
   @Input() imagenUrl: string = '';

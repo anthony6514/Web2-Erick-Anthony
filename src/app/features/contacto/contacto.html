@@ -1,0 +1,102 @@
+<section class="min-h-screen pt-32 pb-24 px-6 bg-[#0a0a0c] relative overflow-hidden">
+    <!-- Background Accents -->
+    <div
+        class="absolute top-0 right-0 w-[500px] h-[500px] bg-[#84CC16]/5 blur-[150px] rounded-full pointer-events-none">
+    </div>
+    <div
+        class="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#0F766E]/5 blur-[150px] rounded-full pointer-events-none">
+    </div>
+
+    <div class="max-w-7xl mx-auto relative z-10">
+        <app-section-header title="Ponte en Contacto"
+            subtitle="Estamos aquí para impulsar tu infraestructura tecnológica y resolver tus dudas operativas.">
+        </app-section-header>
+
+        <div class="mt-16 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <!-- Contact Info -->
+            <div class="space-y-12">
+                <div class="space-y-4">
+                    <h3 class="text-4xl font-black italic tracking-tighter text-white uppercase">Soporte <span
+                            class="text-gradient">Total</span></h3>
+                    <p class="text-gray-400 text-lg leading-relaxed max-w-md">
+                        Nuestra red de asistencia global opera 24/7 para garantizar que tu experiencia en el marketplace
+                        sea impecable.
+                    </p>
+                </div>
+
+                <div class="space-y-6">
+                    <div
+                        class="flex items-center space-x-6 p-6 rounded-3xl bg-white/5 border border-white/5 hover:border-[#84CC16]/30 transition-all group">
+                        <div
+                            class="h-14 w-14 rounded-2xl bg-[#84CC16]/10 flex items-center justify-center text-[#84CC16] group-hover:bg-[#84CC16] group-hover:text-[#0a0a0c] transition-all">
+                            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
+                                </path>
+                            </svg>
+                        </div>
+                        <div>
+                            <p class="text-xs font-black uppercase tracking-widest text-[#84CC16]">Email</p>
+                            <p class="text-white font-bold">contacto@trato.tech</p>
+                        </div>
+                    </div>
+
+                    <div
+                        class="flex items-center space-x-6 p-6 rounded-3xl bg-white/5 border border-white/5 hover:border-[#84CC16]/30 transition-all group">
+                        <div
+                            class="h-14 w-14 rounded-2xl bg-[#84CC16]/10 flex items-center justify-center text-[#84CC16] group-hover:bg-[#84CC16] group-hover:text-[#0a0a0c] transition-all">
+                            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z">
+                                </path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <p class="text-xs font-black uppercase tracking-widest text-[#84CC16]">Ubicación</p>
+                            <p class="text-white font-bold">Distrito Tech, Silicon Valley</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="bg-white/5 backdrop-blur-xl border border-white/10 p-10 rounded-[3rem] shadow-2xl relative">
+                <div
+                    class="absolute inset-0 bg-gradient-to-br from-[#84CC16]/5 to-transparent rounded-[3rem] pointer-events-none">
+                </div>
+
+                <form (ngSubmit)="enviarFormulario()" #formContacto="ngForm" class="space-y-8 relative z-10">
+                    <div class="space-y-2">
+                        <label class="text-xs font-black uppercase tracking-widest text-gray-500 ml-4">Nombre
+                            Completo</label>
+                        <input type="text" name="nombre" [(ngModel)]="contacto.nombre" required
+                            class="w-full bg-[#0a0a0c]/50 border border-white/10 rounded-2xl px-6 py-4 text-white focus:outline-none focus:border-[#84CC16] transition-all placeholder:text-gray-700"
+                            placeholder="Ej. Erick Anthony">
+                    </div>
+
+                    <div class="space-y-2">
+                        <label class="text-xs font-black uppercase tracking-widest text-gray-500 ml-4">Email
+                            Corporativo</label>
+                        <input type="email" name="email" [(ngModel)]="contacto.email" required
+                            class="w-full bg-[#0a0a0c]/50 border border-white/10 rounded-2xl px-6 py-4 text-white focus:outline-none focus:border-[#84CC16] transition-all placeholder:text-gray-700"
+                            placeholder="anthony@trato.tech">
+                    </div>
+
+                    <div class="space-y-2">
+                        <label class="text-xs font-black uppercase tracking-widest text-gray-500 ml-4">Mensaje</label>
+                        <textarea name="mensaje" [(ngModel)]="contacto.mensaje" required rows="4"
+                            class="w-full bg-[#0a0a0c]/50 border border-white/10 rounded-2xl px-6 py-4 text-white focus:outline-none focus:border-[#84CC16] transition-all placeholder:text-gray-700 resize-none"
+                            placeholder="Describe tu requerimiento técnico..."></textarea>
+                    </div>
+
+                    <button type="submit" [disabled]="!formContacto.valid"
+                        class="w-full bg-[#84CC16] text-[#0a0a0c] font-black uppercase tracking-[0.2em] py-5 rounded-2xl transition-all hover:scale-[1.02] hover:shadow-[0_20px_40px_rgba(132,204,22,0.3)] disabled:opacity-50 disabled:grayscale disabled:scale-100">
+                        Enviar Requerimiento
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

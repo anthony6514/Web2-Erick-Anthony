@@ -6,8 +6,9 @@
   --color-primary-950: #0a0a0c;
   --color-primary-900: #121214;
   --color-primary-800: #1a1a1e;
-  --color-accent-600: #6366f1;
-  --color-accent-500: #818cf8;
+  --color-accent-600: #0F766E;
+  --color-accent-500: #14B8A6;
+  --color-accent-400: #84CC16;
 }
 
 body {
@@ -24,7 +25,8 @@ body {
 }
 
 .text-gradient {
-  background: linear-gradient(to right, #818cf8, #c084fc);
+  background: linear-gradient(to right, #84CC16, #0F766E);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }

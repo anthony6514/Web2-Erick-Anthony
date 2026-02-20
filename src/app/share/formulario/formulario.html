@@ -1,133 +1,159 @@
-<div class="max-w-6xl mx-auto p-10 bg-[#0a0a0c] min-h-screen text-white">
+<div class="max-w-7xl mx-auto p-6 md:p-10 bg-[#050505] min-h-screen text-white relative font-sans">
+  
+  <div class="absolute top-0 right-0 w-96 h-96 bg-lime-400/5 blur-[150px] pointer-events-none"></div>
 
-  <div class="mb-10">
-    <h1 class="text-3xl font-bold uppercase tracking-tight">
-      Gestión de <span class="text-blue-500">Usuarios</span>
-      @if (servicioAuth.rolActual() === 'ADMIN') {
-      <span>🗿</span>
-      }
-    </h1>
-    <p class="text-gray-500 text-sm">Administración básica de la base de datos</p>
+  <div class="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6 relative z-10">
+    <div>
+      <div class="flex items-center gap-3 mb-4">
+        <div class="h-1 w-12 bg-lime-400 rounded-full shadow-[0_0_10px_#a3e635]"></div>
+        <span class="text-[10px] font-black uppercase tracking-[0.5em] text-lime-400">Terminal de Control</span>
+      </div>
+      <h1 class="text-5xl font-black tracking-tighter uppercase italic">
+        Gestión de <span class="text-lime-400">Miembros</span>
+      </h1>
+      <p class="text-gray-500 font-medium mt-3 text-sm tracking-wide">Administración central de accesos y jerarquías del sistema</p>
+    </div>
+
+    <div class="bg-zinc-900/50 backdrop-blur-md border border-white/5 px-6 py-4 rounded-[2rem] flex items-center gap-5 shadow-2xl">
+        <div class="text-right">
+            <p class="text-[9px] font-black text-gray-600 uppercase tracking-[0.3em]">Nivel de Acceso</p>
+            <p class="text-sm font-black text-lime-400 tracking-widest">{{ servicioAuth.rolActual() }}</p>
+        </div>
+        <div class="w-12 h-12 rounded-2xl bg-lime-400/10 flex items-center justify-center border border-lime-400/20 text-xl shadow-inner">
+            {{ servicioAuth.rolActual() === 'ADMIN' ? '⚡' : '👤' }}
+        </div>
+    </div>
   </div>
 
-  <!-- Formulario Simple pero elegante -->
   @if (servicioAuth.rolActual() === 'ADMIN' || servicioAuth.rolActual() === 'EMPLEADO') {
-  <div class="bg-gray-900/50 p-8 rounded-2xl border border-gray-800 mb-12 shadow-lg">
-    <h2 class="text-lg font-bold mb-6">
-      {{ editando ? 'Editar Datos' : 'Añadir Nuevo Usuario' }}
-    </h2>
+  <div class="group relative mb-20">
+    <div class="absolute -inset-1 bg-lime-400/10 rounded-[3rem] blur opacity-20 group-hover:opacity-40 transition duration-1000"></div>
+    <div class="relative bg-[#0f1115] p-10 rounded-[2.5rem] border border-white/5 shadow-2xl">
+      <h2 class="text-xs font-black mb-10 flex items-center gap-4 uppercase tracking-[0.4em] text-gray-400">
+        <span class="w-2 h-2 bg-lime-400 rounded-full animate-pulse"></span>
+        {{ editando ? 'Actualizar Información del Miembro' : 'Dar de Alta Nuevo Integrante' }}
+      </h2>
 
-    <form (ngSubmit)="guardarUsuario()" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <form (ngSubmit)="guardarUsuario()" class="grid grid-cols-1 md:grid-cols-3 gap-y-10 gap-x-8">
+        <div class="space-y-3">
+          <label class="text-[10px] font-black text-gray-500 uppercase tracking-[0.2em] ml-2">Nombre Completo</label>
+          <input type="text" placeholder="Ej. Carlos Trato" required name="nombre" [(ngModel)]="nuevoUsuario.name"
+            class="w-full bg-black border border-white/5 p-4 rounded-2xl focus:border-lime-400 focus:ring-0 outline-none transition-all placeholder:text-gray-800 text-sm">
+        </div>
 
-      <div class="flex flex-col gap-2">
-        <label class="text-xs font-bold text-gray-500 uppercase">Nombre</label>
-        <input type="text" placeholder="Juan Perez" required name="nombre" [(ngModel)]="nuevoUsuario.name"
-          class="bg-black border border-gray-800 p-3 rounded-lg focus:border-blue-500 outline-none">
-      </div>
+        <div class="space-y-3">
+          <label class="text-[10px] font-black text-gray-500 uppercase tracking-[0.2em] ml-2">Correo Electrónico</label>
+          <input type="email" placeholder="email@trato.com" required name="email" [(ngModel)]="nuevoUsuario.email"
+            class="w-full bg-black border border-white/5 p-4 rounded-2xl focus:border-lime-400 focus:ring-0 outline-none transition-all placeholder:text-gray-800 text-sm">
+        </div>
 
-      <div class="flex flex-col gap-2">
-        <label class="text-xs font-bold text-gray-500 uppercase">Email</label>
-        <input type="email" placeholder="correo@ejemplo.com" required name="email" [(ngModel)]="nuevoUsuario.email"
-          class="bg-black border border-gray-800 p-3 rounded-lg focus:border-blue-500 outline-none">
-      </div>
+        <div class="space-y-3">
+          <label class="text-[10px] font-black text-gray-500 uppercase tracking-[0.2em] ml-2">Teléfono de Contacto</label>
+          <input type="text" placeholder="+593 ..." required name="telefono" [(ngModel)]="nuevoUsuario.phone"
+            class="w-full bg-black border border-white/5 p-4 rounded-2xl focus:border-lime-400 focus:ring-0 outline-none transition-all placeholder:text-gray-800 text-sm">
+        </div>
 
-      <div class="flex flex-col gap-2">
-        <label class="text-xs font-bold text-gray-500 uppercase">Teléfono</label>
-        <input type="text" placeholder="0987654321" required name="telefono" [(ngModel)]="nuevoUsuario.phone"
-          class="bg-black border border-gray-800 p-3 rounded-lg focus:border-blue-500 outline-none">
-      </div>
+        <div class="space-y-3">
+          <label class="text-[10px] font-black text-gray-500 uppercase tracking-[0.2em] ml-2">Contraseña de Acceso</label>
+          <input type="password" placeholder="••••••••" name="password" [(ngModel)]="nuevoUsuario.password"
+            class="w-full bg-black border border-white/5 p-4 rounded-2xl focus:border-lime-400 focus:ring-0 outline-none transition-all placeholder:text-gray-800 text-sm">
+        </div>
 
-      <div class="flex flex-col gap-2">
-        <label class="text-xs font-bold text-gray-500 uppercase">Contraseña</label>
-        <input type="password" placeholder="********" name="password" [(ngModel)]="nuevoUsuario.password"
-          class="bg-black border border-gray-800 p-3 rounded-lg focus:border-blue-500 outline-none">
-      </div>
+        <div class="space-y-3">
+          <label class="text-[10px] font-black text-gray-500 uppercase tracking-[0.2em] ml-2">Rango del Miembro</label>
+          <div class="relative">
+            <select name="rol" [(ngModel)]="nuevoUsuario.rol"
+                class="w-full bg-black border border-white/5 p-4 rounded-2xl focus:border-lime-400 outline-none text-gray-400 appearance-none cursor-pointer text-sm">
+                <option value="ADMIN">ADMINISTRADOR</option>
+                <option value="EMPLEADO">EQUIPO STAFF</option>
+                <option value="CLIENTE">CLIENTE FINAL</option>
+            </select>
+            <div class="absolute inset-y-0 right-4 flex items-center pointer-events-none text-gray-600">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            </div>
+          </div>
+        </div>
 
-      <div class="flex flex-col gap-2">
-        <label class="text-xs font-bold text-gray-500 uppercase">Rol</label>
-        <select name="rol" [(ngModel)]="nuevoUsuario.rol"
-          class="bg-black border border-gray-800 p-3 rounded-lg focus:border-blue-500 outline-none text-gray-400">
-          <option value="ADMIN">ADMIN</option>
-          <option value="EMPLEADO">EMPLEADO</option>
-          <option value="CLIENTE">CLIENTE</option>
-        </select>
-      </div>
-
-      <button type="submit"
-        class="md:col-span-3 bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 rounded-lg transition-all shadow-md">
-        {{ editando ? 'Guardar Cambios' : 'Registrar Usuario' }}
-      </button>
-    </form>
+        <div class="flex items-end">
+            <button type="submit"
+              class="w-full bg-white hover:bg-lime-400 text-black font-black py-4 rounded-2xl transition-all shadow-xl active:scale-95 uppercase tracking-[0.2em] text-[10px] h-[54px]">
+              {{ editando ? 'Guardar Cambios' : 'Registrar Miembro' }}
+            </button>
+        </div>
+      </form>
+    </div>
   </div>
   } @else {
-  <div
-    class="bg-gray-900/30 p-8 rounded-2xl border border-dashed border-gray-800 mb-12 flex flex-col items-center justify-center gap-4 text-center">
-    <div class="w-16 h-16 bg-gray-800/50 rounded-full flex items-center justify-center text-3xl">
+  <div class="bg-zinc-900/50 border border-white/5 p-12 rounded-[3rem] mb-20 text-center">
+    <div class="inline-flex w-16 h-16 bg-white/5 rounded-full items-center justify-center text-2xl mb-6">
       🔒
     </div>
-    <div>
-      <h2 class="text-xl font-bold text-gray-400">Acceso Restringido</h2>
-      <p class="text-gray-600 text-sm max-w-md mx-auto">
-        No tienes permisos suficientes para añadir o editar usuarios.
-        Ponte en contacto con un administrador si necesitas realizar cambios.
-      </p>
-    </div>
+    <h2 class="text-xl font-black text-white uppercase tracking-tighter mb-2 italic">Acceso Restringido</h2>
+    <p class="text-gray-500 text-xs max-w-xs mx-auto font-bold uppercase tracking-widest leading-relaxed">
+        Tu rango actual no permite realizar modificaciones en la base de datos.
+    </p>
   </div>
   }
 
-  <!-- Tabla de Usuarios -->
-  <div class="bg-black rounded-2xl border border-gray-800 overflow-hidden">
-    <table class="w-full text-left">
-      <thead class="bg-gray-900 text-gray-500 text-xs uppercase font-bold tracking-widest">
-        <tr>
-          <th class="p-4">ID</th>
-          <th class="p-4">Nombre</th>
-          <th class="p-4">Email</th>
-          <th class="p-4">Teléfono</th>
-          <th class="p-4">Rol</th>
-          @if (servicioAuth.rolActual() === 'ADMIN' || servicioAuth.rolActual() === 'EMPLEADO') {
-          <th class="p-4 text-center">Acciones</th>
-          } @else {
-          <th class="p-4 text-center text-gray-700">Estado</th>
-          }
-        </tr>
-      </thead>
-      <tbody class="divide-y divide-gray-800">
-        <tr *ngFor="let usuario of listaUsuarios()" class="hover:bg-gray-900/30 transition-colors">
-          <td class="p-4 text-gray-600 font-mono">#{{ usuario.id }}</td>
-          <td class="p-4 font-bold">{{ usuario.name }}</td>
-          <td class="p-4 text-gray-400">{{ usuario.email }}</td>
-          <td class="p-4 text-gray-400">{{ usuario.phone }}</td>
-          <td class="p-4">
-            <span class="px-2 py-1 rounded text-[10px] font-bold" [ngClass]="{
-                'bg-blue-500/20 text-blue-400': usuario.rol === 'ADMIN',
-                'bg-gray-500/20 text-gray-400': usuario.rol === 'EMPLEADO',
-                'bg-emerald-500/20 text-emerald-400': usuario.rol === 'CLIENTE'
-              }">
-              {{ usuario.rol }}
-              @if (usuario.rol === 'ADMIN') {
-              <span>🗿</span>
-              }
-            </span>
-          </td>
-          @if (servicioAuth.rolActual() === 'ADMIN' || servicioAuth.rolActual() === 'EMPLEADO') {
-          <td class="p-4 text-center flex justify-center gap-2">
-            <button (click)="seleccionarParaEditar(usuario)"
-              class="bg-gray-800 p-2 rounded-lg hover:bg-blue-600 transition-colors">
-              ✏️
-            </button>
-            <button (click)="eliminarUsuario(usuario.id!)"
-              class="bg-gray-800 p-2 rounded-lg hover:bg-red-600 transition-colors">
-              🗑️
-            </button>
-          </td>
-          } @else {
-          <td class="p-4 text-center text-gray-600 flex justify-center items-center gap-1 opacity-50">
-            <span class="text-xs italic uppercase tracking-wider">Bloqueado</span> 🔒
-          </td>
-          }
-        </tr>
-      </tbody>
-    </table>
+  <div class="relative bg-[#0f1115] rounded-[2.5rem] border border-white/5 overflow-hidden shadow-2xl">
+    <div class="overflow-x-auto">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-white/[0.02] text-gray-600 text-[9px] uppercase font-black tracking-[0.4em]">
+              <th class="p-8 border-b border-white/5">ID</th>
+              <th class="p-8 border-b border-white/5">Miembro</th>
+              <th class="p-8 border-b border-white/5">Contacto</th>
+              <th class="p-8 border-b border-white/5">Rango</th>
+              <th class="p-8 border-b border-white/5 text-center">Acciones</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-white/5">
+            <tr *ngFor="let usuario of listaUsuarios()" class="hover:bg-white/[0.01] transition-all group">
+              <td class="p-8 text-gray-700 font-mono text-[10px]">#{{ usuario.id }}</td>
+              <td class="p-8">
+                <div class="flex items-center gap-4">
+                    <div class="w-11 h-11 bg-black rounded-2xl flex items-center justify-center font-black text-[10px] border border-white/10 group-hover:border-lime-400/50 group-hover:text-lime-400 transition-all">
+                        {{ usuario.name.substring(0,2).toUpperCase() }}
+                    </div>
+                    <div>
+                        <p class="font-black text-white text-sm uppercase italic tracking-tight group-hover:text-lime-400 transition-colors">{{ usuario.name }}</p>
+                        <p class="text-[10px] text-gray-600 font-bold uppercase tracking-tighter">{{ usuario.email }}</p>
+                    </div>
+                </div>
+              </td>
+              <td class="p-8 text-xs text-gray-500 font-bold tracking-widest">{{ usuario.phone }}</td>
+              <td class="p-8">
+                <span class="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-[9px] font-black uppercase tracking-[0.2em] border transition-all" 
+                  [ngClass]="{
+                    'bg-lime-400 text-black border-lime-400 shadow-[0_5px_15px_rgba(163,230,53,0.2)]': usuario.rol === 'ADMIN',
+                    'bg-white/5 text-white border-white/10': usuario.rol === 'EMPLEADO',
+                    'bg-transparent text-gray-500 border-white/5': usuario.rol === 'CLIENTE'
+                  }">
+                  <span class="w-1.5 h-1.5 rounded-full bg-current {{ usuario.rol === 'ADMIN' ? 'animate-pulse' : '' }}"></span>
+                  {{ usuario.rol }}
+                </span>
+              </td>
+              <td class="p-8">
+                @if (servicioAuth.rolActual() === 'ADMIN' || servicioAuth.rolActual() === 'EMPLEADO') {
+                <div class="flex justify-center gap-4">
+                  <button (click)="seleccionarParaEditar(usuario)"
+                    class="w-10 h-10 bg-black border border-white/5 rounded-xl flex items-center justify-center hover:bg-white hover:text-black hover:scale-110 transition-all text-sm">
+                    ✏️
+                  </button>
+                  <button (click)="eliminarUsuario(usuario.id!)"
+                    class="w-10 h-10 bg-black border border-white/5 rounded-xl flex items-center justify-center hover:bg-red-600 hover:text-white hover:scale-110 transition-all text-sm">
+                    🗑️
+                  </button>
+                </div>
+                } @else {
+                <div class="flex justify-center items-center opacity-20">
+                  <span class="text-xs">🔒</span>
+                </div>
+                }
+              </td>
+            </tr>
+          </tbody>
+        </table>
+    </div>
   </div>
 </div>

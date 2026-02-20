@@ -1,41 +1,159 @@
-<app-hero titulo="Nuestra Historia" subtitulo="Tu Mejor Trato Empieza Aquí"
-    descripcion="En TRATO nos dedicamos a conectar a las personas con productos de calidad que mejoran su vida diaria."
-    button="Saber más">
-</app-hero>
+<div class="bg-[#0a0a0c] relative overflow-hidden">
+  <!-- Grid Background Pattern -->
+  <div
+    class="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:40px_40px] opacity-10">
+  </div>
 
-<section class="py-24 px-6 bg-primary-950">
-    <div class="max-w-7xl mx-auto">
-        <app-section-header title="¿Quiénes Somos?" subtitle="Conoce el equipo y la misión detrás de TRATO.">
-        </app-section-header>
-        <div class="flex justify-center -mt-6 mb-10">
-            <app-status-badge label="Empresa Verificada 🔒" type="success"></app-status-badge>
+  <!-- Glowing Accents -->
+  <div class="absolute -top-48 -right-48 w-[600px] h-[600px] bg-[#84CC16]/10 blur-[180px] rounded-full"></div>
+  <div class="absolute top-1/2 left-[-10%] w-[500px] h-[500px] bg-[#0F766E]/10 blur-[150px] rounded-full"></div>
+
+  <div class="relative z-10">
+    <app-hero button="Nuestra Misión"></app-hero>
+  </div>
+</div>
+
+<section class="py-32 px-6 bg-[#0a0a0c] relative overflow-hidden">
+  <div class="max-w-7xl mx-auto relative z-10">
+
+    <div class="text-center mb-24">
+      <div class="inline-block mb-8">
+        <app-status-badge label="Corporación Global 🔒" type="success"></app-status-badge>
+      </div>
+      <app-section-header title="Nuestra Esencia"
+        subtitle="Liderando el mercado con integridad, potencia y tecnología de vanguardia.">
+      </app-section-header>
+      <div class="mt-8 flex justify-center">
+        <div
+          class="w-24 h-1 bg-gradient-to-r from-transparent via-[#84CC16] to-transparent rounded-full shadow-[0_0_20px_rgba(132,204,22,0.4)]">
         </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-20 items-center mt-16">
-            <div class="space-y-8">
-                <p class="text-xl text-gray-300 leading-relaxed">
-                    Nacimos con la idea de simplificar el acceso a productos premium para todos. Creemos que la calidad
-                    debe
-                    estar al alcance con un servicio excepcional y humano.
-                </p>
-
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                    <app-feature-item
-                        imagenUrl="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=600&q=80"
-                        title="Misión" description="Proveer productos de alta calidad que mejoren la vida diaria.">
-                    </app-feature-item>
-                    <app-feature-item
-                        imagenUrl="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80"
-                        title="Visión" description="Ser el mercado online número uno preferido por los hogares.">
-                    </app-feature-item>
-                </div>
-            </div>
-            <div class="relative">
-                <div class="absolute -inset-4 bg-accent-600/20 blur-3xl rounded-full"></div>
-                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80"
-                    alt="Equipo"
-                    class="relative rounded-3xl shadow-2xl border border-white/10 grayscale hover:grayscale-0 transition-all duration-700">
-            </div>
-        </div>
+      </div>
     </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+
+      <div class="space-y-12">
+        <!-- Quote Card -->
+        <div class="relative group">
+          <div
+            class="absolute inset-0 bg-gradient-to-r from-[#84CC16]/20 to-[#0F766E]/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-700">
+          </div>
+          <div
+            class="relative bg-white/5 backdrop-blur-2xl p-12 rounded-[3rem] border border-white/10 shadow-2xl overflow-hidden">
+            <div class="absolute top-0 right-0 p-8 opacity-10">
+              <svg class="w-24 h-24 text-white" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M14.017 21L14.017 18C14.017 16.8954 14.9124 16 16.017 16H19.017V14H15.017C13.9124 14 13.017 13.1046 13.017 12V6C13.017 4.89543 13.9124 4 15.017 4H21.017C22.1216 4 23.017 4.89543 23.017 6V12C23.017 13.1046 22.1216 14 21.017 14V16C21.017 18.2091 19.2261 20 17.017 20H14.017V21ZM1.01697 21L1.01697 18C1.01697 16.8954 1.9124 16 3.01697 16H6.01697V14H2.01697C0.912402 14 0.0169678 13.1046 0.0169678 12V6C0.0169678 4.89543 0.912402 4 2.01697 4H8.01697C9.12154 4 10.017 4.89543 10.017 6V12C10.017 13.1046 9.12154 14 8.01697 14V16C8.01697 18.2091 6.22611 20 4.01697 20H1.01697V21Z" />
+              </svg>
+            </div>
+            <p class="text-3xl text-gray-300 font-light leading-snug italic relative z-10">
+              "Redefinimos el estándar de <span class="text-gradient font-black not-italic">calidad</span>. En Trato,
+              construimos un ecosistema de confianza tecnológica para el mundo."
+            </p>
+          </div>
+        </div>
+
+        <!-- Mission/Vision Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div
+            class="group relative bg-white/5 border border-white/5 p-8 rounded-[2.5rem] hover:border-[#84CC16]/30 transition-all duration-500 overflow-hidden">
+            <div
+              class="absolute inset-0 bg-gradient-to-br from-[#84CC16]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+            </div>
+            <div
+              class="w-14 h-14 bg-[#84CC16]/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-[#84CC16] group-hover:text-[#0a0a0c] text-[#84CC16] transition-all relative z-10">
+              <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path d="M13 10V3L4 14h7v7l9-11h-7z" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                </path>
+              </svg>
+            </div>
+            <h4 class="text-white font-black uppercase tracking-widest text-sm mb-3 relative z-10">Misión</h4>
+            <p class="text-gray-400 text-xs leading-relaxed font-medium relative z-10">Excelencia operativa en cada
+              entrega para maximizar tu potencial tecnológico.</p>
+          </div>
+
+          <div
+            class="group relative bg-white/5 border border-white/5 p-8 rounded-[2.5rem] hover:border-[#0F766E]/30 transition-all duration-500 overflow-hidden">
+            <div
+              class="absolute inset-0 bg-gradient-to-br from-[#0F766E]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+            </div>
+            <div
+              class="w-14 h-14 bg-[#0F766E]/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-[#0F766E] text-[#0F766E] group-hover:text-white transition-all relative z-10">
+              <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" stroke-width="2" stroke-linecap="round" />
+                <path
+                  d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+                  stroke-width="2" stroke-linecap="round" />
+              </svg>
+            </div>
+            <h4 class="text-white font-black uppercase tracking-widest text-sm mb-3 relative z-10">Visión</h4>
+            <p class="text-gray-400 text-xs leading-relaxed font-medium relative z-10">Ser el motor global que impulsa
+              el futuro del retail inteligente y descentralizado.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Image Column -->
+      <div class="relative px-4">
+        <!-- Decoration circles -->
+        <div class="absolute -top-10 -left-10 w-32 h-32 border border-[#84CC16]/20 rounded-full animate-pulse"></div>
+        <div class="absolute -bottom-10 -right-10 w-48 h-48 bg-[#0F766E]/10 blur-[60px] rounded-full"></div>
+
+        <div class="relative bg-white/5 p-4 rounded-[4rem] border border-white/10 shadow-3xl overflow-hidden group">
+          <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80"
+            alt="Equipo Trato"
+            class="rounded-[3.2rem] h-[600px] w-full object-cover transition-all duration-1000 group-hover:scale-105 brightness-90 group-hover:brightness-100 grayscale-[30%] group-hover:grayscale-0">
+
+          <!-- Overlay badge -->
+          <div
+            class="absolute bottom-10 left-10 right-10 bg-[#0a0a0c]/80 backdrop-blur-xl border border-white/10 p-8 rounded-[2.5rem] shadow-2xl flex items-center justify-between">
+            <div class="space-y-1">
+              <p class="text-[#84CC16] text-[10px] font-black uppercase tracking-[0.4em]">Global Connect</p>
+              <h5 class="text-white font-black text-2xl tracking-tighter uppercase italic">Team Trato <span
+                  class="text-gradient">Elite</span></h5>
+            </div>
+            <div class="h-14 w-14 rounded-2xl bg-[#84CC16]/10 flex items-center justify-center">
+              <div class="w-3 h-3 bg-[#84CC16] rounded-full animate-ping shadow-[0_0_15px_#84CC16]"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
 </section>
+
+<!-- Stats Grid -->
+<div class="bg-[#0a0a0c] border-y border-white/5 py-24 relative overflow-hidden">
+  <div class="absolute inset-0 bg-[radial-gradient(#84CC16_1px,transparent_1px)] bg-[size:32px_32px] opacity-[0.03]">
+  </div>
+
+  <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-12 text-center relative z-10">
+    <div class="space-y-4 group">
+      <div
+        class="text-6xl font-black italic tracking-tighter text-white group-hover:text-[#84CC16] transition-colors duration-500 leading-none">
+        100%</div>
+      <div class="h-1 w-12 bg-[#84CC16]/20 mx-auto rounded-full group-hover:w-20 transition-all duration-500"></div>
+      <p class="text-gray-500 text-[10px] font-black uppercase tracking-[0.3em]">Ciberseguridad</p>
+    </div>
+    <div class="space-y-4 group">
+      <div
+        class="text-6xl font-black italic tracking-tighter text-white group-hover:text-[#0F766E] transition-colors duration-500 leading-none">
+        24/7</div>
+      <div class="h-1 w-12 bg-[#0F766E]/20 mx-auto rounded-full group-hover:w-20 transition-all duration-500"></div>
+      <p class="text-gray-500 text-[10px] font-black uppercase tracking-[0.3em]">Soporte Activo</p>
+    </div>
+    <div class="space-y-4 group">
+      <div class="text-6xl font-black italic tracking-tighter text-[#84CC16] leading-none">+50K</div>
+      <div class="h-1 w-12 bg-white/10 mx-auto rounded-full group-hover:w-20 transition-all duration-500"></div>
+      <p class="text-gray-500 text-[10px] font-black uppercase tracking-[0.3em]">Usuarios Elite</p>
+    </div>
+    <div class="space-y-4 group">
+      <div
+        class="text-6xl font-black italic tracking-tighter text-white group-hover:text-[#84CC16] transition-colors duration-500 leading-none">
+        INTL</div>
+      <div class="h-1 w-12 bg-[#84CC16]/20 mx-auto rounded-full group-hover:w-20 transition-all duration-500"></div>
+      <p class="text-gray-500 text-[10px] font-black uppercase tracking-[0.3em]">Presencia Global</p>
+    </div>
+  </div>
+</div>

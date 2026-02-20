@@ -1,44 +1,89 @@
-<app-hero titulo="Bienvenido a Trato" subtitulo="Tu Mercado Online Favorito"
-    descripcion="Descubre lo mejor para tu hogar, moda y estilo con precios increíbles y entrega garantizada."
-    button="Ver Ofertas">
-</app-hero>
+<div class="bg-[#020617] relative overflow-hidden border-b border-white/5">
+    <div
+        class="absolute inset-0 opacity-20 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:40px_40px]">
+    </div>
 
-<section class="py-20 px-6 bg-primary-950">
-    <div class="max-w-7xl mx-auto">
-        <app-section-header title="Nuestros Servicios"
-            subtitle="Ofrecemos la mejor experiencia de compra con beneficios exclusivos para nuestros clientes.">
-        </app-section-header>
-        <div class="flex justify-center -mt-6 mb-10">
-            <app-status-badge label="Actualizado Hoy" type="info"></app-status-badge>
+    <div class="absolute top-[-20%] left-[-10%] w-[600px] h-[600px] bg-[#0F766E]/20 blur-[150px] rounded-full"></div>
+    <div class="absolute bottom-[-20%] right-[-10%] w-[500px] h-[500px] bg-[#84CC16]/10 blur-[150px] rounded-full">
+    </div>
+
+    <div class="relative z-10">
+        <app-hero button="Iniciar Operación">
+        </app-hero>
+    </div>
+</div>
+
+<section class="py-24 px-6 bg-[#F8FAFC] relative overflow-hidden">
+    <div class="absolute -top-24 -right-24 w-96 h-96 bg-[#84CC16]/5 blur-[120px] rounded-full"></div>
+
+    <div class="max-w-7xl mx-auto relative z-10">
+        <div class="flex flex-col md:flex-row md:items-center justify-between mb-20 gap-8">
+            <div class="max-w-xl text-center md:text-left">
+                <div class="flex items-center justify-center md:justify-start gap-2 mb-4">
+                    <span class="h-[2px] w-8 bg-[#84CC16]"></span>
+                    <span class="text-[#0F766E] text-[10px] font-black uppercase tracking-[0.4em]">Core
+                        Infrastructure</span>
+                </div>
+                <app-section-header title="Nuestros Servicios"
+                    subtitle="Soluciones diseñadas para escalar al ritmo de la tecnología global.">
+                </app-section-header>
+            </div>
+            <app-status-badge label="Nodos Operativos" type="success"></app-status-badge>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
-            <app-feature-item
-                imagenUrl="https://images.unsplash.com/photo-1586769852836-bc069f19e1b6?auto=format&fit=crop&w=600&q=80"
-                title="Envío Rápido"
-                description="Recibe tus productos en tiempo récord directamente en la puerta de tu casa.">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <app-feature-item title="Envío Ultra-Rápido"
+                description="Logística automatizada con seguimiento en tiempo real."
+                imagenUrl="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=2070&auto=format&fit=crop">
+                <svg icon class="w-5 h-5 text-[#0F172A]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path d="M13 10V3L4 14h7v7l9-11h-7z" stroke-width="2.5" stroke-linecap="round"
+                        stroke-linejoin="round"></path>
+                </svg>
             </app-feature-item>
-            <app-feature-item
-                imagenUrl="https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=600&q=80"
-                title="Compra Segura"
-                description="Tus transacciones están protegidas con los más altos estándares de seguridad.">
+
+            <app-feature-item title="Blindaje Total"
+                description="Encriptación avanzada para asegurar tus transacciones."
+                imagenUrl="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop">
+                <svg icon class="w-5 h-5 text-[#0F172A]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path
+                        d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
+                        stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
             </app-feature-item>
-            <app-feature-item
-                imagenUrl="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=600&q=80"
-                title="Soporte 24/7"
-                description="Nuestro equipo de atención al cliente está siempre disponible para ayudarte.">
+
+            <app-feature-item title="Expert Support" description="Asistencia técnica especializada disponible 24/7."
+                imagenUrl="https://www.advisory.com/content/advisory/us/en/company/products/expert-support/_jcr_content/root/container_1581629625/container/flexiblehero.coreimg.jpeg/1768236220265/team-working-discuss-presentation.jpeg">
+                <svg icon class="w-5 h-5 text-[#0F172A]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path
+                        d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"
+                        stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
             </app-feature-item>
         </div>
     </div>
 </section>
 
-<section class="py-20 px-6 bg-primary-900">
-    <div class="max-w-7xl mx-auto">
-        <app-section-header title="Productos Destacados"
-            subtitle="Echa un vistazo a lo que otros están comprando ahora mismo.">
-        </app-section-header>
+<section class="py-24 px-6 bg-[#0F172A] relative">
+    <div
+        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[#84CC16]/5 blur-[180px] pointer-events-none">
+    </div>
 
-        <app-productos-mas-vendidos></app-productos-mas-vendidos>
+    <div class="max-w-7xl mx-auto relative z-10">
+        <div class="mb-16 flex flex-col md:flex-row items-center justify-between gap-6 border-b border-white/10 pb-8">
+            <div class="text-white">
+                <app-section-header title="Hardware & Activos" subtitle="La selección más potente del mercado global.">
+                </app-section-header>
+            </div>
+
+            <button
+                class="px-8 py-4 bg-[#84CC16] text-[#020617] text-[10px] font-black uppercase tracking-[0.2em] rounded-2xl hover:bg-white transition-all shadow-xl shadow-[#84CC16]/10">
+                Ver Catálogo Completo
+            </button>
+        </div>
+
+        <div class="p-8 bg-[#020617]/50 backdrop-blur-xl rounded-[3.5rem] border border-white/5 shadow-3xl">
+            <app-productos-mas-vendidos></app-productos-mas-vendidos>
+        </div>
     </div>
 </section>
 

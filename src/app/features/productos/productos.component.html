@@ -1,77 +1,116 @@
-<section class="bg-primary-950 py-12 antialiased min-h-screen">
-    <div class="mx-auto max-w-screen-xl px-4 2xl:px-0">
-        <!-- COMPONENTE 1: Section Header -->
-        <app-section-header title="Catálogo Completo"
-            subtitle="Explora nuestra gran variedad de productos con la mejor calidad y precio del mercado.">
-        </app-section-header>
+<div class="bg-[#E2E8F0] min-h-screen font-sans antialiased text-[#1E293B] relative overflow-hidden">
+    
+    <div class="absolute top-0 left-0 w-full h-full pointer-events-none opacity-40">
+        <div class="absolute top-[-5%] right-[-5%] w-[600px] h-[600px] bg-[#0F766E]/5 blur-[120px] rounded-full"></div>
+        <div class="absolute bottom-[-5%] left-[-5%] w-[500px] h-[500px] bg-[#84CC16]/10 blur-[120px] rounded-full"></div>
+    </div>
 
-        <div class="mb-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-            @for (producto of productos(); track producto.id) {
-            <div
-                class="glass-morphism rounded-2xl p-6 hover:shadow-2xl hover:shadow-accent-600/10 transition-all duration-300 group">
-                <div class="h-56 w-full overflow-hidden rounded-xl bg-primary-900 mb-6 relative">
-                    <!-- COMPONENTE 2: Status Badge (Uso dinámico) -->
-                    <div class="absolute top-2 right-2 z-10">
-                        <app-status-badge label="En Stock" type="success"></app-status-badge>
+    <section class="relative z-10 py-16">
+        <div class="mx-auto max-w-screen-xl px-6">
+            
+            <div class="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-8 border-b border-[#0F766E]/10 pb-10">
+                <div class="max-w-xl">
+                    <div class="flex items-center gap-3 mb-3">
+                        <div class="flex gap-1">
+                            <span class="w-1.5 h-4 bg-[#84CC16] rounded-full"></span>
+                            <span class="w-1.5 h-4 bg-[#0F766E] rounded-full"></span>
+                        </div>
+                        <span class="text-[10px] font-black text-[#0F766E] uppercase tracking-[0.4em]">Inventario 2026</span>
                     </div>
-                    <img class="mx-auto h-full w-full object-cover group-hover:scale-110 transition-transform duration-500"
-                        [src]="producto.imageUrl" [alt]="producto.name" />
+                    <h1 class="text-4xl md:text-5xl font-black text-[#0F172A] tracking-tighter mb-3 uppercase italic leading-none">
+                        Catálogo <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#0F766E] to-[#84CC16] not-italic">Pro</span>
+                    </h1>
                 </div>
-                <div class="space-y-4">
-                    <div class="flex items-center justify-between">
-                        <span
-                            class="px-3 py-1 rounded-full text-xs font-bold bg-accent-600/10 text-accent-400 border border-accent-600/20">
-                            {{ producto.category }}
-                        </span>
-                    </div>
-
-                    <h3 class="text-xl font-bold text-white group-hover:text-accent-500 transition-colors">
-                        {{ producto.name }}
-                    </h3>
-
-                    <p class="text-sm text-gray-400 line-clamp-2 leading-relaxed">
-                        {{ producto.description }}
-                    </p>
-
-                    <div class="pt-4 flex items-center justify-between gap-4 border-t border-white/5">
-                        <p class="text-2xl font-black text-white">
-                            ${{ producto.price }}
-                        </p>
-
-                        <button (click)="agregarAlCarrito(producto.name)" type="button"
-                            class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-accent-600 text-white hover:bg-accent-500 shadow-lg shadow-accent-600/20 transition-all transform active:scale-95">
-                            <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M12 4v16m8-8H4"></path>
-                            </svg>
-                        </button>
-                    </div>
+                
+                <div class="flex gap-2 bg-white/70 backdrop-blur-xl p-2 rounded-full border border-white shadow-lg">
+                    <button class="px-6 py-2.5 bg-[#0F766E] text-white rounded-full text-[10px] font-black uppercase tracking-widest transition-all">Todos</button>
+                    <button class="px-6 py-2.5 text-[#0F766E]/60 rounded-full text-[10px] font-black uppercase tracking-widest hover:bg-white transition-all">Hardware</button>
                 </div>
             </div>
-            }
-        </div>
 
-        <!-- COMPONENTE 3: Feature Item (Uso extra para completar el mínimo de 3) -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 border-t border-white/10 pt-16">
-            <app-feature-item
-                imagenUrl="https://img.freepik.com/psd-gratis/calidad-logotipo-3d-esta-garantizada_314999-3847.jpg?semt=ais_user_personalization&w=740&q=80"
-                title="Garantía Extendida"
-                description="Todos nuestros productos cuentan con 2 años de garantía oficial.">
-            </app-feature-item>
-            <app-feature-item
-                imagenUrl="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfDAUL4I8BAwNRfa9vCJ7eiR-rvZag8zNr9w&s"
-                title="Pago Flexible" description="Aceptamos todas las tarjetas y opciones de pago financiado.">
-            </app-feature-item>
-            <app-feature-item
-                imagenUrl="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvvE1mS5Y7nqP6CX3XfpVLM4kk7hzNxniyrA&s"
-                title="Envío Global" description="Llegamos a cualquier rincón del país con seguimiento en vivo.">
-            </app-feature-item>
-        </div>
-    </div>
-</section>
+            <div class="mb-24 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                @for (producto of productos(); track producto.id) {
+                <div class="group relative bg-[#0F172A] rounded-[2.5rem] p-1.5 transition-all duration-500 hover:-translate-y-2 border border-white/5 shadow-2xl overflow-hidden">
+                    
+                    <div class="relative aspect-square w-full overflow-hidden bg-gradient-to-br from-[#1E293B] to-[#0F172A] rounded-[2.2rem]">
+                        
+                        <div class="absolute top-4 right-4 z-20">
+                            <span class="bg-[#84CC16] text-[#0F172A] text-[7px] font-black px-2 py-0.5 rounded uppercase tracking-tighter shadow-sm">
+                                {{ producto.stock > 0 ? 'Stock' : 'Agotado' }}
+                            </span>
+                        </div>
 
-<section class="py-20 bg-primary-900">
-    <app-section-header title="Los Favoritos" subtitle="Productos que están marcando tendencia este mes.">
-    </app-section-header>
-    <app-productos-mas-vendidos></app-productos-mas-vendidos>
-</section>
+                        <img class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                            [src]="producto.imageUrl" [alt]="producto.name" />
+                        
+                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-30 flex items-center justify-center">
+                            <button (click)="agregarAlCarrito(producto.name)" 
+                                class="bg-white text-black font-black text-[9px] uppercase px-5 py-2.5 rounded-lg hover:bg-[#84CC16] transition-all transform active:scale-95 shadow-xl">
+                                Ver Detalles
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="p-5">
+                        <h3 class="text-lg font-black text-slate-100 group-hover:text-[#84CC16] transition-colors leading-tight uppercase italic mb-4">
+                            {{ producto.name }}
+                        </h3>
+
+                        <div class="flex items-center justify-between border-t border-white/5 pt-4">
+                            <p class="text-2xl font-black text-white tracking-tighter">
+                                <span class="text-sm text-[#84CC16] mr-0.5">$</span>{{ producto.price }}
+                            </p>
+                            <span class="text-[9px] font-bold text-[#84CC16] uppercase tracking-widest italic opacity-80">
+                                NEW ARRIVAL
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                }
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-0 rounded-[3rem] overflow-hidden bg-[#0F172A] border border-white/10 shadow-3xl">
+                <div class="p-10 border-b md:border-b-0 md:border-r border-white/5 hover:bg-white/5 transition-all text-center">
+                    <div class="w-10 h-10 bg-[#84CC16] rounded-lg flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-5 h-5 text-[#0F766E]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944" stroke-width="2.5"></path></svg>
+                    </div>
+                    <h4 class="font-black text-slate-200 text-xs mb-1 uppercase italic">Seguridad</h4>
+                    <p class="text-slate-500 text-[9px]">Protección total.</p>
+                </div>
+                <div class="p-10 border-b md:border-b-0 md:border-r border-white/5 hover:bg-white/5 transition-all text-center">
+                    <div class="w-10 h-10 bg-[#84CC16] rounded-lg flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-5 h-5 text-[#0F766E]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z" stroke-width="2.5"></path></svg>
+                    </div>
+                    <h4 class="font-black text-slate-200 text-xs mb-1 uppercase italic">Logística</h4>
+                    <p class="text-slate-500 text-[9px]">Envíos rápidos.</p>
+                </div>
+                <div class="p-10 hover:bg-white/5 transition-all text-center">
+                    <div class="w-10 h-10 bg-[#84CC16] rounded-lg flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-5 h-5 text-[#0F766E]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" stroke-width="2.5"></path></svg>
+                    </div>
+                    <h4 class="font-black text-slate-200 text-xs mb-1 uppercase italic">Soporte</h4>
+                    <p class="text-slate-500 text-[9px]">Canal 24/7.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 relative bg-white/30 backdrop-blur-sm">
+        <div class="mx-auto max-w-screen-xl px-6 relative z-10">
+            <div class="flex flex-col md:flex-row items-center justify-between mb-12 gap-6">
+                <div>
+                    <h2 class="text-4xl font-black text-[#0F172A] tracking-tighter uppercase italic mb-2">
+                        Ofertas <span class="text-[#0F766E]">Flash</span>
+                    </h2>
+                </div>
+                <button class="px-8 py-3 bg-[#0F172A] text-white rounded-xl text-[9px] font-black uppercase tracking-widest hover:bg-[#84CC16] transition-all">
+                    Ver Catálogo
+                </button>
+            </div>
+            
+            <div class="bg-white/80 backdrop-blur-2xl rounded-[3rem] p-8 border border-white shadow-2xl">
+                <app-productos-mas-vendidos></app-productos-mas-vendidos>
+            </div>
+        </div>
+    </section>
+</div>

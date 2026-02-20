@@ -2,12 +2,11 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { StatusBadgeComponent } from '../../share/status-badge';
-import { SectionHeaderComponent } from '../../share/section-header';
 
 @Component({
       selector: 'app-carrito',
       standalone: true,
-      imports: [CommonModule, FormsModule, StatusBadgeComponent, SectionHeaderComponent],
+      imports: [CommonModule, FormsModule, StatusBadgeComponent],
       templateUrl: './carrito.component.html',
       styleUrls: ['./carrito.component.css']
 })

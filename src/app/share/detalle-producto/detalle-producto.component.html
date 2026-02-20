@@ -1,73 +1,74 @@
 @if (producto) {
-  <div class="bg-white rounded-xl shadow-md overflow-hidden border border-slate-200 h-fit animate-fade-in-up">
+  <div class="relative bg-white rounded-[2.5rem] border border-gray-200 overflow-hidden shadow-2xl animate-fade-in-up group">
     
-    <div class="bg-slate-800 p-4 border-b border-slate-700">
-      <h3 class="text-white font-bold text-lg tracking-wide">Detalles del Producto</h3>
+    <div class="bg-[#1F2937] px-8 py-5 border-b border-white/5 flex justify-between items-center">
+      <div class="flex items-center gap-3">
+        <div class="flex gap-1.5">
+          <div class="w-2.5 h-2.5 rounded-full bg-[#60A5FA] shadow-[0_0_8px_#60A5FA]"></div>
+          <div class="w-2.5 h-2.5 rounded-full bg-gray-600"></div>
+          <div class="w-2.5 h-2.5 rounded-full bg-gray-700"></div>
+        </div>
+        <h3 class="text-[10px] font-black text-gray-400 uppercase tracking-[0.3em] ml-2">Product Specifications // Core</h3>
+      </div>
+      <span class="text-[10px] font-mono text-[#60A5FA]/70">v2.0.26</span>
     </div>
 
-    <div class="p-6 space-y-6">
+    <div class="p-8 space-y-8">
       
-      <div class="flex items-center gap-5">
-        <img 
-          [src]="producto.imageUrl" 
-          alt="Foto del Producto" 
-          class="w-20 h-20 rounded-lg object-cover border-4 border-slate-100 shadow-sm bg-slate-200">
+      <div class="flex flex-col md:flex-row items-center gap-8 pb-8 border-b border-gray-100">
+        <div class="relative">
+          <div class="absolute -inset-4 bg-[#60A5FA]/10 blur-2xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          <img 
+            [src]="producto.imageUrl" 
+            alt="Foto del Producto" 
+            class="relative w-40 h-40 rounded-[2rem] object-contain p-4 border border-gray-100 shadow-xl bg-[#F9FAFB] transform group-hover:scale-105 transition-transform duration-500">
+        </div>
         
-        <div>
-          <p class="text-[10px] text-slate-400 font-bold uppercase tracking-widest mb-1">
-            NOMBRE DEL PRODUCTO
+        <div class="text-center md:text-left">
+          <p class="text-[10px] text-[#60A5FA] font-black uppercase tracking-[0.4em] mb-2">
+            Master Unit Name
           </p>
-          <h2 class="text-3xl font-extrabold text-slate-800 leading-none">
+          <h2 class="text-4xl md:text-5xl font-black text-[#1F2937] tracking-tighter leading-none uppercase">
             {{ producto.name }}
           </h2>
         </div>
       </div>
 
-      <div class="grid grid-cols-2 gap-4 bg-slate-50 p-4 rounded-lg border border-slate-100">
-        <div>
-          <p class="text-[10px] text-slate-400 font-bold uppercase tracking-widest mb-1">
-            SKU
-          </p>
-          <p class="text-lg font-bold text-slate-700">
-            #{{ producto.id }}
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="bg-[#F9FAFB] p-5 rounded-2xl border border-gray-200 hover:border-[#60A5FA]/30 transition-colors">
+          <p class="text-[9px] text-gray-400 font-black uppercase tracking-widest mb-2">Reference ID</p>
+          <p class="text-xl font-mono font-bold text-[#1F2937] tracking-tighter">#{{ producto.id }}</p>
+        </div>
+        
+        <div class="bg-[#F9FAFB] p-5 rounded-2xl border border-gray-200 hover:border-[#60A5FA]/30 transition-colors">
+          <p class="text-[9px] text-gray-400 font-black uppercase tracking-widest mb-2">Sector / Category</p>
+          <p class="text-xl font-bold text-[#1F2937] tracking-tighter uppercase italic">{{ producto.category }}</p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="bg-[#60A5FA]/5 p-6 rounded-2xl border border-[#60A5FA]/20">
+          <p class="text-[9px] text-[#60A5FA] font-black uppercase tracking-widest mb-2">Market Value</p>
+          <p class="text-4xl font-black text-[#1F2937] tracking-tighter">
+            {{ producto.price | currency:'USD' }}
           </p>
         </div>
         
-        <div>
-          <p class="text-[10px] text-slate-400 font-bold uppercase tracking-widest mb-1">
-            CATEGORÍA
+        <div class="p-6 rounded-2xl border flex flex-col justify-center transition-all duration-500"
+             [class]="producto.stock > 0 ? 'bg-gray-50 border-gray-200' : 'bg-red-50 border-red-100'">
+          <p class="text-[9px] font-black uppercase tracking-widest mb-2"
+             [class]="producto.stock > 0 ? 'text-gray-400' : 'text-red-500'">
+             Inventory Status
           </p>
-          <p class="text-lg font-bold text-slate-700">
-            {{ producto.category }}
+          <p class="text-xl font-black tracking-tighter" [class]="producto.stock > 0 ? 'text-[#1F2937]' : 'text-red-600'">
+            {{ producto.stock > 0 ? producto.stock + ' UNIDADES' : 'DISCONTINUED' }}
           </p>
         </div>
       </div>
 
-      <div class="grid grid-cols-2 gap-4 bg-slate-50 p-4 rounded-lg border border-slate-100">
-        <div>
-          <p class="text-[10px] text-slate-400 font-bold uppercase tracking-widest mb-1">
-            PRECIO
-          </p>
-          <p class="text-2xl font-bold text-indigo-600">
-            ${{ producto.price }}
-          </p>
-        </div>
-        
-        <div>
-          <p class="text-[10px] text-slate-400 font-bold uppercase tracking-widest mb-1">
-            STOCK DISPONIBLE
-          </p>
-          <p class="text-lg font-bold" [ngClass]="{'text-green-600': producto.stock > 0, 'text-red-600': producto.stock === 0}">
-            {{ producto.stock }} unidades
-          </p>
-        </div>
-      </div>
-
-      <div class="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-400 shadow-sm">
-        <h4 class="text-xs font-bold text-blue-700 uppercase tracking-widest mb-2 flex items-center gap-2">
-          DESCRIPCIÓN
-        </h4>
-        <p class="text-slate-700 font-medium text-sm leading-relaxed">
+      <div class="relative bg-[#F9FAFB] p-6 rounded-[2rem] border border-gray-200 overflow-hidden">
+        <h4 class="text-[10px] font-black text-gray-400 uppercase tracking-[0.3em] mb-4">Core Description</h4>
+        <p class="text-gray-600 font-medium text-sm leading-relaxed relative z-10">
           {{ producto.description }}
         </p>
       </div>
@@ -75,8 +76,16 @@
       <button
         (click)="avisarCompra()"
         [disabled]="producto.stock === 0"
-        class="w-full bg-slate-800 hover:bg-slate-900 disabled:bg-gray-400 text-white font-bold py-4 px-6 rounded-lg shadow-lg shadow-slate-200 transition-all transform active:scale-95 text-center tracking-wide">
-        {{ producto.stock > 0 ? 'Añadir al Carrito' : 'Agotado' }}
+        class="group relative w-full overflow-hidden rounded-2xl py-5 transition-all active:scale-95 disabled:opacity-50 disabled:grayscale">
+        
+        <div class="absolute inset-0 bg-[#1F2937] group-hover:bg-[#60A5FA] transition-colors duration-300"></div>
+        
+        <span class="relative z-10 flex items-center justify-center gap-3 font-black text-xs uppercase tracking-[0.3em] text-white">
+          {{ producto.stock > 0 ? 'Confirmar Adquisición' : 'Agotado Temporalmente' }}
+          @if (producto.stock > 0) {
+            <svg class="w-4 h-4 transform group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          }
+        </span>
       </button>
 
     </div>
